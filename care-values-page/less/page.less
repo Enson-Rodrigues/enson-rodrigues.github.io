@@ -1,0 +1,447 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+
+
+/*------------- Mixins -------------*/
+@height: 30px;
+@container-width: 1170px; /* Actual conatainer total width is 1200px */
+@actual-width: 1140px;
+
+/*------------- General CSS -------------*/
+body {
+	font-family: 'Open Sans', sans-serif!important;
+	font-size: 14px!important;
+}
+.main-wrapper {
+	margin: 0 auto;
+	width: 100%;
+}
+.clearfix:after {
+	content: ""; 
+	display: block; 
+	clear: both;
+}
+.container-0 {
+	width: @container-width;  /* Actual conatainer total width is 1200px */
+	margin: 0 auto!important;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+/*.container.container-0 {
+	padding-right: 0;
+	padding-left: 0;
+}*/
+.fr {
+	float: right;
+}
+.fl {
+	float: left;
+}
+.common-font-size {
+	font-size: 0.9em;
+}
+input[type="text"], input[type="submit"], select {
+    background-color: #ffffff;
+    border: 1px solid #e4e4e4;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    color: #b7b7b7!important;
+    /*height: 16px;*/
+    padding: 4px 20px 4px 10px;
+    /*width: 182px;*/
+    font-size: 1.2rem;
+}
+.search .btn {
+    background: #ebebeb url("../images/new/search.png") no-repeat scroll center 50%;
+
+    -webkit-border-bottom-right-radius: 4px;
+    -o-border-bottom-right-radius: 4px;
+    -moz-border-bottom-right-radius: 4px;
+    -ms-border-bottom-right-radius: 4px;
+
+    -webkit-border-top-right-radius: 4px;
+    -o-border-top-right-radius: 4px;
+    -moz-border-top-right-radius: 4px;
+    -ms-border-top-right-radius: 4px;
+
+    cursor: pointer;
+    height: 27px;
+    width: 28px;
+}
+
+
+/*------------- Logo header css -------------*/
+.header0, .main-container {
+	padding: 20px 0;
+}
+.logo-right {
+	margin-top: 28px;
+	width: @actual-width*0.59;
+
+	.control {
+		margin-top: 4px;
+
+		a {
+			margin-left: 20px;
+
+			img:hover {
+				opacity: 0.6;
+			}
+
+			&:nth-of-type(1) {
+				margin-left: 10px;
+			}
+		}
+	}
+}
+
+
+/*-------- Navigation CSS {nav} tag & share CSS ---------*/
+
+@navigation-width: @actual-width*0.92;
+@ul-width: @navigation-width*0.56;
+
+.header1 {
+	background: #551054;
+	margin-top: 10px;
+
+	nav {
+		font-size: 0.9em;
+		text-align: center;
+		width: @navigation-width;
+
+		#menu {
+			display: none;
+		}
+
+		.purplenav {/* ul */
+			margin: 0 auto 0 25%;
+			list-style: none;
+	    	width: @ul-width;
+
+			li {
+				background: #8F538F url("../images/new/navigation-shadow.png") repeat top;
+				width: (@ul-width/4); /* UL calculated width */
+				float: left;
+				padding: 7px 30px 7px 0;
+				/*border-right: 1px solid;*/
+				cursor: pointer;
+
+				/*-webkit-box-shadow: 10px 0px 5px -2px #888 ;*/
+				box-shadow: -7px 0px 8px -5px #3F0C3C ;
+
+				-moz-transform: skewX(-32deg);
+				-webkit-transform: skewX(-32deg);
+				-o-transform: skewX(-32deg);
+				-ms-transform: skewX(-32deg);
+				
+
+				& * {
+					transform: skewX(32deg);
+					-moz-transform: skewX(32deg);
+					-webkit-transform: skewX(32deg);
+					-o-transform: skewX(32deg);
+					-ms-transform: skewX(32deg);
+				}
+
+				&:hover {
+					opacity: 0.8;
+				}
+
+				a {
+					text-decoration: none;
+                	color: white;
+
+					span {
+						display: block;
+					    margin-top: 2px;
+					    text-indent: 32px;
+					}
+				}
+			}
+		}
+	} 
+	.people-count {
+		margin-top: 28px;
+	}
+}
+
+
+/*-------- Main Carousel CSS ---------*/
+.main-container {
+	.head1 div {
+		width: @actual-width*0.5;
+
+		&:nth-of-type(2) {
+			line-height: @height;
+
+			select {
+				height: @height;
+			    width: 100%*0.4;
+			    margin-left: 5px;
+			}
+		}
+
+		h4 {
+
+	    	span {
+	    		color: #8F538F;
+	    		font-size: 0.9em;
+	    	}
+		}
+	}
+	.carousel {
+    	background: #f6f6f6 none repeat scroll 0 0;
+	    border-top: 1px solid;
+	    margin: 10px 0;
+	    padding: 15px 32px;
+	    position: relative;
+	}
+}
+.main-container .carousel .owl-carousel {
+	.owl-controls .owl-nav {
+		.owl-prev, .owl-next {
+		    position: absolute;
+		    top: 40%;
+		    color: #F6F6F6;
+		    height: @height;
+		    z-index: 16;
+		}
+		.owl-prev {
+			background: url("../images/new/arrow-prev.png") no-repeat;
+			left: -28px;
+		}
+		
+		.owl-next {
+			background: url("../images/new/arrow-next.png") no-repeat;
+			right: -38px;
+		}
+	}
+	
+	.owl-stage-outer .owl-stage .owl-item {
+		img {
+			padding-left: 5px;
+    		width: 80%;
+		}
+		.item {
+			background: white;
+			padding: 10px 20px;
+
+			div {
+				&:nth-of-type(1) {
+					width: 77%;
+				}
+				
+				h4 {
+					font-weight: bold;
+				}
+				&:nth-of-type(1) p {
+					margin: 10px 0;
+
+					span {
+						color: #B74EB4;
+					}
+				}
+
+				&:nth-of-type(2) p{
+					margin: 12px 0 4px;
+				}
+			}
+		}
+	}
+}
+
+
+/*-------- Multiple Carousel CSS ---------*/
+.collapse-2 {
+	margin-top: 20px;
+	margin-bottom: 20px ;
+
+	.carousel-2 {
+		margin: 0 15px;
+
+		.owl-carousel {
+			width: (@actual-width/4)-40;
+			background: #F6F6F6;
+			padding: 35px 34px 20px;
+			position: relative;
+
+			.owl-stage-outer {
+				.item {
+					.decision-1 {
+						border-bottom: 1px solid #bebebe;
+						margin-bottom: 14px;
+						padding-bottom: 2px;
+
+						img {
+							width: 17px!important;
+						}
+						h4 {
+							margin-top: 0;
+							margin-left: 8px;
+							margin-bottom: 0;
+						}
+					}
+				}
+				.decision-2 {
+					margin-bottom: 14px;
+
+					div {
+						.date {
+							margin-bottom: 0;
+					   		margin-left: 4px;
+						}
+						p {
+							margin-bottom: 0;
+						}
+					} 
+					div:nth-of-type(2) {
+						width: 60%;
+
+						img {
+							width: 24%;
+						}
+					}
+						
+					img {
+						width: 70%;
+					}
+				}
+				.decision-3 {
+					div {
+						p {
+							margin-bottom: 0;
+						}
+						div {
+							img {
+								width: 24px;
+							}
+							p {
+								padding-top: 3px;
+							}
+						}
+					} 
+				}
+			}
+		}
+		.owl-controls {
+			.owl-prev, .owl-next {
+				position: absolute;
+				top: 50%;
+				height: @height;
+			    z-index: 16;
+			    color: #F6F6F6;
+			}
+			.owl-prev {
+				background: url("../images/new/arrow-prev.png") no-repeat;
+	    		left: 2px;
+			}
+				
+			.owl-next {
+				background: url("../images/new/arrow-next.png") no-repeat;
+				right: -8px;
+			}
+		}
+		.carousel-footer {
+			background: #8C469C;
+			color: white;
+			text-align: center;
+			width: (@actual-width/4)-40;
+			padding: 10px ;
+
+			&.light-lavender {
+				background: #C155C4;
+			}
+
+			&.pink {
+				background: #E37EE6;
+			}
+
+			&.light-pink {
+				background: #F9A7FB;
+			}
+			p {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+
+/*-------- Customise Bootstrap CSS ---------*/
+h4 {
+	font-size: 1.1em;
+}
+.panel-group {
+	margin-bottom: 10px;
+}
+.panel-default > .panel-heading {
+	background: #DCDADB;
+	color: #fff;
+}
+.panel-heading .accordion-toggle:after {
+	/* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+	content: "\e113";    /* adjust as needed, taken from bootstrap.css */
+	float: right;
+}
+.panel-heading .accordion-toggle.collapsed:after {
+	/* symbol for "collapsed" panels */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+}
+.accordion-toggle:hover {
+	text-decoration: none;
+}
+#accordion {
+	.panel-heading {
+		h4 a {
+			color: #000;
+		}
+	}
+	.dark-0 {
+		background: #9F9F9F;
+		transition:background 2s ease;
+		
+		h4 { 
+			a {
+				color: #fff;
+
+				.glyphicon-plus, .glyphicon-minus {
+					color: #fff;
+				}
+			} 
+		} 
+	}
+}
+
+.glyphicon {
+	font-family: Helvetica;
+	font-size: 20px;
+	color: #000;
+}
+.panel-body .collapse-1 div span{
+	line-height: @height;
+    margin-right: 4px;
+}
+
+
+.collapse-1 div:nth-of-type(2) {
+	line-height: @height;
+    margin-left: 18%;
+
+	input[type="checkbox"] {
+		margin: 0 0 2px 8px;
+	}
+}
+
+/*-------- Footer CSS ---------*/
+footer {
+	background: url("../images/new/footer-bg.jpg") repeat top;
+	height: 136px;
+	margin: 40px 0;
+
+	div p {
+		text-align: center;
+		padding-top: 140px;
+		color: #B74EB4;
+	}
+}
