@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
     Route,
     NavLink,
@@ -20,7 +20,7 @@ function AppContainer() {
     <HashRouter>
           <>
             <ul className="header">
-              <li><img src="https://assets.bupa.co.uk/Assets/Global/Components/css/img/icon/logo.png"/></li>
+              <li><img alt="company logo" src="https://assets.bupa.co.uk/Assets/Global/Components/css/img/icon/logo.png"/></li>
               <li><NavLink to="/">Home</NavLink></li>
               <li><NavLink to="/article">Our Article</NavLink></li>
               <li><NavLink to="/about">About</NavLink></li>
