@@ -1,15 +1,18 @@
-import React from "react";
+import React from "react"; //, { Component }
 import {
     Route,
-    NavLink,
+    NavLink,  //Switch, Router,
     HashRouter
 } from "react-router-dom";
 
+//Header section
+import Header from "./menu/header";
+
 // Menu pages
-import Home from "./component/Home";
-import About from "./component/About";
-import Contact from "./component/Contact";
-import Article from "./component/Article"
+import Home from "./component/home";
+import About from "./component/about";
+import Contact from "./component/contact";
+import Article from "./component/article"
 
 import './AppContainer.css';
 
@@ -20,11 +23,11 @@ function AppContainer() {
     <HashRouter>
           <>
             <ul className="header">
-              <li><img alt="company logo" src="https://assets.bupa.co.uk/Assets/Global/Components/css/img/icon/logo.png"/></li>
-              <li><NavLink to="/">Home</NavLink></li>
-              <li><NavLink to="/article">Our Article</NavLink></li>
-              <li><NavLink to="/about">About</NavLink></li>
-              <li><NavLink to="/contact">Contact</NavLink></li>
+              <li><NavLink to="/" replace ><img alt="company logo" src="https://assets.bupa.co.uk/Assets/Global/Components/css/img/icon/logo.png"/></NavLink></li>
+              <li><NavLink to="/" replace >Home</NavLink></li>
+              <li><NavLink to="/article" replace >Our Article</NavLink></li>
+              <li><NavLink to="/about" replace >About</NavLink></li>
+              <li><NavLink to="/contact" replace >Contact</NavLink></li>
             </ul>
             <div className="content">
               <Route exact path="/" component={Home}/> 
@@ -33,10 +36,10 @@ function AppContainer() {
               <Route path="/article" component={Article} />
             </div>
             <ul className="footer">
-              <li><NavLink to="/">Home</NavLink></li>
-              <li><NavLink to="/article">Our Article</NavLink></li>
-              <li><NavLink to="/about">About</NavLink></li>
-              <li><NavLink to="/contact">Contact</NavLink></li>
+              <li><NavLink to="/" replace >Home</NavLink></li>
+              <li><NavLink to="/article" replace >Our Article</NavLink></li>
+              <li><NavLink to="/about" replace >About</NavLink></li>
+              <li><NavLink to="/contact" replace >Contact</NavLink></li>
             </ul>
           </>
         </HashRouter>

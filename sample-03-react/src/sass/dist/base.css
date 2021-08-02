@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.checkNewTest {
+  color: black;
+  font-size: 15px;
+  border: 1px solid red;
+}
+
+.loading {
+  position: absolute;
+  left: 42%;
+  top: 46%;
+}
+
+ul.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #0055b1;
+  margin: 0;
+  color: white;
+}
+
+ul.footer li a {
+  color: white;
+  display: inline-block;
+}
+
+ul.header li, ul.footer li {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 20px;
+}
+
+ul.header {
+  background-color: #111;
+  padding: 0;
+}
+
+ul.header li a {
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.content {
+  background-color: #FFF;
+  padding: 20px;
+  margin-bottom: 70px;
+}
+
+.content h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.content li {
+  margin-bottom: 10px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
