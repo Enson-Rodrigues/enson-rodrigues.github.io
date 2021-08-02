@@ -6,7 +6,7 @@ import "./sass/dist/maintenance.css"
 class Maintenance extends Component {
 
   componentDidMount(){
-    document.title = "Bupa.co.uk maintenance page";
+    document.title = "Bupa.co.uk maintenance page ";
     
     var acc = document.getElementsByClassName("accordion");
     console.log(acc.length);
