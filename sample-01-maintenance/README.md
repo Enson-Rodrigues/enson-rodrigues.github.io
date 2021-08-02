@@ -6,10 +6,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npx create-react-app my-app`
-
-### `npm install node-sass@4.14.1`
-
 ### `npm start`
 
 Runs the app in the development mode.\
