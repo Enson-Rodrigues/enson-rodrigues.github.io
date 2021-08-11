@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import data from "../data/employeeData.json"
  
-let Loading = (param)=>{
+let Loading = (param) => {
   return <>
     <img alt="loader" className="loading" src={param.url}/>
   </>
