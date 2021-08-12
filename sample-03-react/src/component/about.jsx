@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import axios from "axios";
 import data from "../data/employeeData.json"
  
-let Loading = (param) => {
+const Loading = (param) => {
   return <>
     <img alt="loader" className="loading" src={param.url}/>
   </>
 }
 
-let PopUp = (param) => {
+const PopUp = (param) => {
   console.log(param);
   return <>
     <div id="myNav" className="overlay">
@@ -79,7 +79,7 @@ class About extends Component {
   }
 
   componentDidMount() {
-    var jsonFile = true;
+    let jsonFile = true;
 
     if(jsonFile) {
       setTimeout(() => { 
