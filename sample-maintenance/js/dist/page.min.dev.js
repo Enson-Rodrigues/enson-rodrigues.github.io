@@ -1,5 +1,13 @@
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 // Accordion JS below 
 var acc = document.getElementsByClassName("accordion");
 
@@ -68,7 +76,8 @@ function hoistingDisplay() {
   console.log(b);
 }
 hoistingDisplay();
-console.log(b);*/
+console.log(b);
+*/
 // Closure encapsulation and data hiding 
 
 
@@ -126,16 +135,58 @@ var firstName = person.firstName,
 //or more elements are expected.
 
 function sum(x, y, z) {
-  return x + y + z;
+  return x + y + z + "Rs is there with " + this.firstName;
 }
 
-var numbers = [1, 2, 3]; //console.log(sum(...numbers));
+var numbers = [1, 2, 3];
+var myObject = {
+  firstName: "Enson",
+  total: 600
+}; // Spread operator is usefull to pass as object or array in function initialisation
+//console.log(sum(...numbers));
 // expected output: 6
 //console.log(sum.apply(null, numbers));
 // expected output: 6
-//Sort the array
 
-var sortArray = [333, 1, 232, 2, 21312, 45];
+console.log(sum.apply(myObject, numbers));
+console.log(sum.call(myObject, 4, 2, 3));
+var myBind = sum.bind(myObject, 4, 2, 3);
+console.log(myBind()); // Some exmaples 
+
+function Calculate(param) {
+  var fee = param;
+
+  this.getMonthlyFee = function () {
+    var remainingAmount = this.total - fee;
+    return "Hello " + this.firstName + " you have so much amount " + remainingAmount;
+  };
+
+  return this.getMonthlyFee();
+}
+
+var employee = new Calculate(40);
+console.log(employee.getMonthlyFee.call(myObject)); //Sort the array
+
+var sortArray = [333, 1, 232, 2, 21312, 45, 4, 5, 232, 1, 2];
+var a = sortArray[0],
+    b = sortArray[1],
+    c = sortArray[2],
+    d = sortArray[3];
+console.log(a);
 sortArray.sort(function (a, b) {
   return a - b;
-}); //console.log(sortArray);
+});
+console.log(sortArray); // Map filter reduce for each
+
+var map = sortArray.map(function (ele, index, arr) {
+  return ele * 2;
+});
+console.log(map);
+var filter = sortArray.filter(function (ele, index, arr) {
+  return arr.indexOf(ele) === index;
+});
+var useSet = new Set(sortArray);
+console.log(filter);
+console.log(useSet.size);
+console.log(useSet.has(11));
+console.log(_toConsumableArray(useSet));
