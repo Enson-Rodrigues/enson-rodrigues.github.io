@@ -143,8 +143,9 @@ var myObject = {
   firstName: "Enson",
   total: 600
 }; // Spread operator is usefull to pass as object or array in function initialisation
-//console.log(sum(...numbers));
-// expected output: 6
+// This will reduce use of apply or call methods 
+
+console.log(sum.apply(void 0, numbers)); // expected output: 6
 //console.log(sum.apply(null, numbers));
 // expected output: 6
 
@@ -164,8 +165,13 @@ function Calculate(param) {
   return this.getMonthlyFee();
 }
 
+Calculate.prototype.display = function () {
+  return "this is display function";
+};
+
 var employee = new Calculate(40);
-console.log(employee.getMonthlyFee.call(myObject)); //Sort the array
+console.log(employee.getMonthlyFee.call(myObject));
+console.log(employee.display()); //Sort the array
 
 var sortArray = [333, 1, 232, 2, 21312, 45, 4, 5, 232, 1, 2];
 var a = sortArray[0],
@@ -176,17 +182,48 @@ console.log(a);
 sortArray.sort(function (a, b) {
   return a - b;
 });
-console.log(sortArray); // Map filter reduce for each
+console.log(sortArray); // Map, filter, reduce,  for each
 
 var map = sortArray.map(function (ele, index, arr) {
   return ele * 2;
 });
-console.log(map);
+console.log("Map funct  " + map);
 var filter = sortArray.filter(function (ele, index, arr) {
   return arr.indexOf(ele) === index;
 });
+console.log("filter " + filter);
+var reduce = sortArray.reduce(function (initial, sum) {
+  return initial + sum;
+});
+console.log("Reduce " + reduce);
 var useSet = new Set(sortArray);
-console.log(filter);
 console.log(useSet.size);
 console.log(useSet.has(11));
-console.log(_toConsumableArray(useSet));
+console.log(_toConsumableArray(useSet)); // String and Array
+
+var str = "Heloothere";
+console.log(str.slice(0, -4));
+console.log(str.substring(0, 4));
+var array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(array.slice(0, 4));
+console.log(array.splice(4, 2, "Enson"));
+console.log(array); // Async, wait and promise kindly check ... React js for more details
+
+var makeRequest = function makeRequest() {
+  return getJSON("http://dummy.restapiexample.com/api/v1/employees").then(function (data) {
+    console.log(data);
+  });
+};
+
+makeRequest();
+
+function getJSON(url) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+
+  xhr.onload = function () {
+    then(xhr.response);
+  };
+
+  xhr.send();
+}

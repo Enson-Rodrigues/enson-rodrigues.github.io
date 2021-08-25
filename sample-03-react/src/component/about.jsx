@@ -79,7 +79,7 @@ class About extends Component {
   }
 
   componentDidMount() {
-    let jsonFile = true;
+    let jsonFile = false;
 
     if(jsonFile) {
       setTimeout(() => { 
@@ -93,9 +93,11 @@ class About extends Component {
     }
     
   }
-
+  // Async, await 
   employeeRawData = () => {
-    axios.get(`http://dummy.restapiexample.com/api/v1/employees`).then(
+    var that = this;
+    //async
+    /*axios.get(`http://dummy.restapiexample.com/api/v1/employees`).then(
       response  => {
         if(response.data.data !== 0) {
           this.setState({
@@ -114,8 +116,36 @@ class About extends Component {
             console.log(error.response.headers);
           }
         });
-  }
+  }*/
+    /*try {
+      // this parse may fail
+      const data = await axios.get(`http://dummy.restapiexample.com/api/v1/employees`);
+      console.log(data.data.data);
+    } catch (err) {
+      console.log(err);
+    };*/
 
+    // Promise way
+    var jsonPromise = new Promise(function(resolve, reject) {
+      // JSON.parse throws an error if you feed it some
+      // invalid JSON, so this implicitly rejects:
+      resolve(axios.get(`http://dummy.restapiexample.com/api/v1/employees`));
+    });
+    
+    jsonPromise.then(function(data) {
+      
+      // This never happens:
+      console.log("It worked!", data.data.data);
+      that.setState({
+        employee: data.data.data,
+        isLoading: false
+      });
+    }).catch(function(err) {
+      // Instead, this happens:
+      console.log("It failed!", err);
+    })
+  }
+  
 }
  
 export default About;
