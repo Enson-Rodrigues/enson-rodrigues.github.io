@@ -7,7 +7,9 @@ class Home extends Component {
     super(props)
 
     this.state = {
-      initialStockData: ""
+      initialStockData: "",
+      newStockData: [],
+      oldStockData: []
     }
   }
 
@@ -61,11 +63,51 @@ class Home extends Component {
     let displayStock = () =>{
       var item = stockData[Math.floor(Math.random()*stockData.length)];
       //console.log(item);
-      this.setState({
-        initialStockData: item
+
+      let arr = item.match(/[^[\]"?]+/g);
+      //console.log(arr);
+      let newArray = arr.filter(function(ele, index, re){
+        return ele != ",";
+      });
+      //console.log(newArray);
+
+      var newObject = newArray.map(function(ele, index){
+        var actualArrayObject = {
+          "stockName": ele.split(",")[0],
+          "stockPrice": ele.split(",")[1],
+          "flag": false,
+          "id": index+1
+        }
+        return actualArrayObject;
       })
-      //console.log(this.state)
-      this.formateTheStockString(this.state);
+      //console.log(newObject);
+
+      // Arrange in order for array of objects
+      var sortArrayObject = newObject.sort(function(a, b) {
+        return a.stockName.localeCompare(b.stockName)
+      })
+      
+      //console.log(sortArrayObject);
+      // Remove duplicate
+      var sortArrayObject2 = sortArrayObject.filter((thing, index, self) =>
+        index === self.findIndex((t) => (
+          t.stockName === thing.stockName
+        ))
+      )
+      //var sortArrayObject2 = [...new Set(sortArrayObject.map(item => item.stockName))]
+      console.log(sortArrayObject2);
+
+      this.setState({
+        initialStockData: item,
+        newStockData: sortArrayObject2
+      })
+
+      //console.log(this.state.newStockData);
+
+      
+      //this.state.oldStockData.push(sortArrayObject2);
+      //console.log(this.state.oldStockData);
+
     }
 
     if(triggerInterval) {
@@ -78,20 +120,49 @@ class Home extends Component {
 
   formateTheStockString = (params) => {
     //console.log(params);
-    var myArray = [];
 
     // Match returns and array of elements
-    let arr = params.initialStockData.match(/[^[,\]"?]+/g);
-    console.log(arr);
+    let arr = params.initialStockData.match(/[^[\]"?]+/g);
+    let newArray = arr.filter(function(ele, index, re){
+      return ele != ",";
+    });
+    //console.log(newArray);
 
-    arr.map(function(ele, index, arr){
-      if(index%2){
+    var newObject = newArray.map(function(ele, index){
+      var actualArrayObject = {
+        "stockName": ele.split(",")[0],
+        "stockPrice": ele.split(",")[1],
+        "flag": false,
+        "id": index+1
       }
+      return actualArrayObject;
     })
 
+    // Arrange in order for array of objects
+    var sortArrayObject = newObject.sort(function(a, b) {
+      return a.stockName.localeCompare(b.stockName)
+    })
+    //console.log(sortArrayObject);
+    // Remove duplicate
+    var sortArrayObject2 = sortArrayObject.filter((thing, index, self) =>
+      index === self.findIndex((t) => (
+        t.stockName === thing.stockName
+      ))
+    )
+    //console.log(this.state.newStockData);
+
+    return sortArrayObject2;
+    
 
   }
 
+  /*{this.state.newStockData.map(target=>(
+    <tr>
+    <td>{target.stockName}</td>
+    <td>{target.stockPrice}</td>
+    <td>{target.flag}</td>
+  </tr>
+))}*/
 
   render() {
     return (
@@ -102,6 +173,7 @@ class Home extends Component {
         <p>{this.state.initialStockData}</p>
         <br></br>
         <br></br>
+        
         <table>
           <tbody>
             <tr>
@@ -109,38 +181,16 @@ class Home extends Component {
               <th>Share Price</th>
               <th>Up or Down</th>
             </tr>
-            <tr>
-              <td>Alfreds Futterkiste</td>
-              <td>Maria Anders</td>
-              <td>Germany</td>
-            </tr>
-            <tr>
-              <td>Centro comercial Moctezuma</td>
-              <td>Francisco Chang</td>
-              <td>Mexico</td>
-            </tr>
-            <tr>
-              <td>Ernst Handel</td>
-              <td>Roland Mendel</td>
-              <td>Austria</td>
-            </tr>
-            <tr>
-              <td>Island Trading</td>
-              <td>Helen Bennett</td>
-              <td>UK</td>
-            </tr>
-            <tr>
-              <td>Laughing Bacchus Winecellars</td>
-              <td>Yoshi Tannamuri</td>
-              <td>Canada</td>
-            </tr>
-            <tr>
-              <td>Magazzini Alimentari Riuniti</td>
-              <td>Giovanni Rovelli</td>
-              <td>Italy</td>
-            </tr>
+            {this.state.newStockData.map(target=>(
+                <tr>
+                <td>{target.stockName}</td>
+                <td>{target.stockPrice}</td>
+                <td>{target.flag}</td>
+              </tr>
+            ))}            
           </tbody>
         </table>
+      
       </>
     );
   }

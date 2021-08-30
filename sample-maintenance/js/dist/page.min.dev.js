@@ -1,13 +1,5 @@
 "use strict";
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
 // Accordion JS below 
 var acc = document.getElementsByClassName("accordion");
 
@@ -23,6 +15,7 @@ for (var i = 0; i < acc.length; i++) {
     }
   });
 } // Learning Sample Code Closure
+// closure is a function along with its lexical scope bundle together to form a closure 
 
 
 function display() {
@@ -37,6 +30,7 @@ function display() {
 }
 
 var result = display(); //result();
+// closure 2
 
 function printNumber() {
   for (var i = 0; i < 5; i++) {
@@ -47,26 +41,31 @@ function printNumber() {
     };
 
     renderThis(i);
-  }
+  } //console.log("print 01");
+  //console.log("print 02");
 
-  console.log("print 01");
-  console.log("print 02");
 } //printNumber();
 //First class function : Ability to be used as a values 
+// Hoisting
 
-/*let a = 100;
+
+var a = 100;
 var b = 10;
-const c = 4;
-if(true){
-    console.log(b);
-    const c = 2;
-    console.log(c);
-    var b = 20;
-    let a;
-    console.log(a);
-    a=12;
-    console.log(a);
+var c = 4;
+
+if (true) {
+  //console.log(a);
+  console.log(b); //console.log(c);
+
+  var _c = 2;
+  console.log(_c);
+  var b = 20; //let a;
+
+  console.log(a);
+  a = 12;
+  console.log(a);
 }
+
 console.log(a);
 console.log(b);
 console.log(c);
@@ -74,12 +73,11 @@ console.log(c);
 function hoistingDisplay() {
   var b = 40;
   console.log(b);
+  console.log("funct" + c);
 }
-hoistingDisplay();
-console.log(b);
-*/
-// Closure encapsulation and data hiding 
 
+hoistingDisplay();
+console.log(b); // Closure encapsulation and data hiding 
 
 function counter() {
   var count = 0;
@@ -98,7 +96,7 @@ var abc = counter();
 abc();
 abc();*/
 
-function check(param) {
+function Check(param) {
   var count = param;
 
   this.increament = function () {
@@ -111,7 +109,7 @@ function check(param) {
   };
 }
 
-var sample1 = new check(2);
+var sample1 = new Check(2);
 console.log("contructor"); //sample1.outside();
 //sample1.outside();
 //sample1.increament();
@@ -144,15 +142,15 @@ var myObject = {
   total: 600
 }; // Spread operator is usefull to pass as object or array in function initialisation
 // This will reduce use of apply or call methods 
-
-console.log(sum.apply(void 0, numbers)); // expected output: 6
+//console.log(sum(...numbers));
+// expected output: 6
 //console.log(sum.apply(null, numbers));
 // expected output: 6
+//console.log(sum.apply(myObject, numbers));
+//console.log(sum.call(myObject, 4,2,3));
 
-console.log(sum.apply(myObject, numbers));
-console.log(sum.call(myObject, 4, 2, 3));
-var myBind = sum.bind(myObject, 4, 2, 3);
-console.log(myBind()); // Some exmaples 
+var myBind = sum.bind(myObject, 4, 2, 3); //console.log(myBind());
+// Some exmaples 
 
 function Calculate(param) {
   var fee = param;
@@ -169,61 +167,42 @@ Calculate.prototype.display = function () {
   return "this is display function";
 };
 
-var employee = new Calculate(40);
-console.log(employee.getMonthlyFee.call(myObject));
-console.log(employee.display()); //Sort the array
+var employee = new Calculate(40); //console.log(employee.getMonthlyFee.call(myObject));
+//console.log(employee.display());
+//Sort the array
 
 var sortArray = [333, 1, 232, 2, 21312, 45, 4, 5, 232, 1, 2];
-var a = sortArray[0],
+var r = sortArray[0],
     b = sortArray[1],
-    c = sortArray[2],
-    d = sortArray[3];
-console.log(a);
+    h = sortArray[2],
+    d = sortArray[3]; //console.log(a);
+
 sortArray.sort(function (a, b) {
   return a - b;
-});
-console.log(sortArray); // Map, filter, reduce,  for each
+}); //console.log(sortArray);
+// Map, filter, reduce,  for each
 
 var map = sortArray.map(function (ele, index, arr) {
   return ele * 2;
-});
-console.log("Map funct  " + map);
+}); //console.log("Map funct  "+map);
+
 var filter = sortArray.filter(function (ele, index, arr) {
   return arr.indexOf(ele) === index;
-});
-console.log("filter " + filter);
+}); //console.log("filter "+filter);
+
 var reduce = sortArray.reduce(function (initial, sum) {
   return initial + sum;
-});
-console.log("Reduce " + reduce);
-var useSet = new Set(sortArray);
-console.log(useSet.size);
-console.log(useSet.has(11));
-console.log(_toConsumableArray(useSet)); // String and Array
+}); //console.log("Reduce "+reduce);
 
-var str = "Heloothere";
-console.log(str.slice(0, -4));
-console.log(str.substring(0, 4));
-var array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-console.log(array.slice(0, 4));
-console.log(array.splice(4, 2, "Enson"));
-console.log(array); // Async, wait and promise kindly check ... React js for more details
+var useSet = new Set(sortArray); //console.log(useSet.size);
+//console.log(useSet.has(11));
+//console.log([...useSet]);
+// String and Array
 
-var makeRequest = function makeRequest() {
-  return getJSON("http://dummy.restapiexample.com/api/v1/employees").then(function (data) {
-    console.log(data);
-  });
-};
+var str = "Heloothere"; //console.log(str.slice(0, -4));
+//console.log(str.substring(0, 4));
 
-makeRequest();
-
-function getJSON(url) {
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', url, true);
-
-  xhr.onload = function () {
-    then(xhr.response);
-  };
-
-  xhr.send();
-}
+var array = [1, 2, 3, 4, 5, 6, 7, 8, 9]; //console.log(array.slice(0, 4));
+//console.log(array.splice(4, 2, "Enson"));
+//console.log(array)
+// Async, wait and promise kindly check ... React js for more details

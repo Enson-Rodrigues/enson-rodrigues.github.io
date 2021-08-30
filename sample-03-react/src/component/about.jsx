@@ -79,7 +79,7 @@ class About extends Component {
   }
 
   componentDidMount() {
-    let jsonFile = false;
+    let jsonFile = true;
 
     if(jsonFile) {
       setTimeout(() => { 
@@ -87,7 +87,9 @@ class About extends Component {
           employee: data,
           isLoading: false
         });
+        console.log(this.state.employee);
       }, 500);
+      
     } else {
       this.employeeRawData();
     }
@@ -140,6 +142,7 @@ class About extends Component {
         employee: data.data.data,
         isLoading: false
       });
+      console.log(that.state.employee);
     }).catch(function(err) {
       // Instead, this happens:
       console.log("It failed!", err);
