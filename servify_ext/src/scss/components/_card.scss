@@ -1,0 +1,19 @@
+.card{
+    .card-content {
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      .card-detail{
+          .actionWrapper{
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            color: white;
+            font-weight: 500;
+            button{
+  
+              background-color: #00ACC1;
+            }
+          }
+      }
+  }

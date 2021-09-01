@@ -1,0 +1,23 @@
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+  
+    &.danger {
+      background-color:$red;
+      color: $white;
+      border: 1px solid $red;
+  
+      &:hover {
+        background-color: $geraldine;
+      }
+    }
+    &.blue {
+      background-color: $egg-blue;
+      color: $white;
+      border: 1px solid $egg-blue;
+      &:hover {
+        background-color: $anakiwa;
+      }
+    }
+  }
+  

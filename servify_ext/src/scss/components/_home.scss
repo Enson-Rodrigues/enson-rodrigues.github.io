@@ -1,0 +1,68 @@
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    * {
+      box-sizing: border-box;
+    }
+    @media screen and (min-width: 576px) {
+      max-width: 540px;
+    }
+    @media screen and (min-width: 768px) {
+      max-width: 720px;
+    }
+    @media screen and (min-width: 992px) {
+      max-width: 960px;
+    }
+    @media screen and (min-width: 1200px) {
+      // max-width: 1140px;
+    }
+  }
+  .header{
+    background-color: $pacific-blue;
+    color: $white;
+  }
+  .container {
+    .form-controller {
+      width: 50%;
+      padding: 10px;
+      @media screen and (max-width: 576px) {
+        width: 100%;
+      }
+    }
+    .usersWrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+  
+      .col {
+        width: 100%;
+        min-width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px;
+        box-sizing: border-box;
+        text-align: center;
+        box-shadow: 2px 1px 7px 1px $alto-solid;
+  
+        @media screen and (min-width: 576px) {
+          max-width: 100%;
+        }
+        @media screen and (min-width: 768px) {
+          max-width: 45%;
+        }
+        @media screen and (min-width: 992px) {
+          max-width: 20%;
+        }
+        @media screen and (min-width: 1200px) {
+          max-width: 20%;
+        }
+      }
+    }
+  }
+  
