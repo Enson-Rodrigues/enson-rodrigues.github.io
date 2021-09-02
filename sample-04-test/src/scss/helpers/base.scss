@@ -95,6 +95,9 @@ ul.dropDownList li {
 	border-bottom: 1px solid #717171;
 	transition: all 0.4s ease-in-out; 
 }
+ul.dropDownList li:last-child {
+	border-bottom: none;
+}
 ul.dropDownList li:hover {
 	background: #669F37 none repeat scroll 0 0;
 }
@@ -108,7 +111,7 @@ ul.dropDownList li:hover {
 	display: block;
 	font-size: 1rem;
 	font-weight: bold;
-	margin: 30px auto 0;
+	margin: 0 auto;
 	padding: 14px 20px;
 	text-decoration: none;
 	text-align: center;
@@ -124,7 +127,16 @@ ul.dropDownList li:hover {
 .btn:hover {
 	background: #669F37 none repeat scroll 0 0;
 }
-
+.skinCTA {
+	background: #a04f4feb;
+	padding: 20px;
+	border-radius: 5px;
+	display: block;
+	font-weight: bold;
+}
+.skinCTA:hover {
+	background: #a04f4f;
+}
 .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	max-width: 300px;
@@ -169,6 +181,15 @@ ul.dropDownList li:hover {
 			display: block;
     		margin: 60px auto 0;
 		}
+	}
+}
+.form-controller {
+	label {
+		display: block;
+		margin-bottom: 30px;
+	}
+	> div {
+		display: inline-block;
 	}
 }
 

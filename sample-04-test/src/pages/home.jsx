@@ -78,10 +78,11 @@ class Home extends Component {
     return (
       <>
         <div className="text-center">
-            <h1>Search based on the filter in the drop down</h1>
-            <p>We have the list of job types</p>
+            <h1>You can search our employee based on search filter below</h1>
+            <p>E & R welcomes you to explore more</p>
             <div className="container">
               <div className="form-controller">
+                <label>Select the Job list from drop down</label>
                 <CustomDropdown
                   jobs={this.state.jobTypeList}
                   label="Select the Job list from drop down"

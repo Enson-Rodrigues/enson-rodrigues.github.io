@@ -24,7 +24,7 @@ function App() {
             <div className="">
               <div className="vessel">
                 <Route exact path="/" component={Home}/> 
-                <Route exact path="/forwarding" component={Forwarding}/>
+                <Route exact path="/forwarding:user_id" component={Forwarding}/>
               </div>
             </div>
         </div>

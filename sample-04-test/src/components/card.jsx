@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import CustomButton from "./customButton";
  
 class Card extends Component {
 
@@ -21,6 +23,12 @@ class Card extends Component {
                   <img alt="dummy" src={target.avatar}/>
                   <h1>{target.name}</h1>
                   <p className="title">Job Type {target.jobtype}</p>
+                  <Link to={"/forwarding" + target.id}>
+                    <CustomButton 
+                      ctaText="Read More"
+                      customClass="skinCTA">
+                    </CustomButton>
+                  </Link>
                 </div>
               ))}
             </div>
