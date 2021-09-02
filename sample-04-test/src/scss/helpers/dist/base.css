@@ -1,0 +1,741 @@
+body {
+  font-family: pp-sans-small-regular, Helvetica Neue, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  /*line-height: 1px;*/
+  /*text-transform: capitalize;*/
+}
+
+h1, h2, h3, h4, h5 {
+  line-height: 1.25em;
+}
+
+p {
+  /*color: #2c2e2f;*/
+  font-size: 1.071em;
+  line-height: 1.5em;
+  margin: 0;
+  padding-bottom: 14px;
+  padding-top: 4px;
+}
+
+a:link, a:hover, a:active, a:visited {
+  color: #ffffff;
+}
+
+ul {
+  list-style-type: none;
+}
+ul li {
+  float: left;
+  padding: 20px;
+}
+ul li a {
+  /*padding: 10px 20px;*/
+  text-decoration: none;
+  display: block;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+hr {
+  display: none;
+}
+
+#wrapper {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.vessel {
+  width: 1200px;
+  margin: 0 auto;
+  /*border: 1px solid red;*/
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.clearfix:after {
+  display: table;
+  content: "";
+  clear: both;
+}
+
+.triangle {
+  border-left: 6px solid rgba(0, 0, 0, 0);
+  border-right: 6px solid rgba(0, 0, 0, 0);
+  border-top: 6px solid #d1ecbf;
+  height: 0;
+  left: 8px;
+  position: relative;
+  top: 14px;
+  width: 0;
+}
+
+.up {
+  border-bottom: 6px solid #d1ecbf;
+  border-top: none;
+  top: -12px;
+}
+
+.dropDownList {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 102%;
+  background: #268400;
+  font-size: 10px;
+  border-radius: 6px;
+}
+
+ul.dropDownList li {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: normal;
+  border-bottom: 1px solid #717171;
+  transition: all 0.4s ease-in-out;
+}
+
+ul.dropDownList li:hover {
+  background: #669F37 none repeat scroll 0 0;
+}
+
+.commonPadding {
+  padding: 60px 0;
+}
+
+.btn {
+  background: #63bf27 none repeat scroll 0 0;
+  border-radius: 6px;
+  color: #ffffff;
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 30px auto 0;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+  /*width: 18%;*/
+  width: 220px;
+  position: relative;
+  -webkit-box-shadow: 1px 0px 3px 10px rgba(0, 0, 0, 0.29);
+  -moz-box-shadow: 1px 0px 3px 10px rgba(0, 0, 0, 0.29);
+  box-shadow: 1px 0px 3px 10px rgba(0, 0, 0, 0.29);
+  transition: all 0.4s ease-in-out;
+}
+
+.btn:hover {
+  background: #669F37 none repeat scroll 0 0;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  background: #a04f4f6b;
+}
+
+/* Desktop CSS */
+.layer01 {
+  background: url(../../assests/heroBg0.png) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #ffffff;
+}
+.layer01 header {
+  text-transform: capitalize;
+}
+.layer01 header ul li a {
+  text-shadow: 0.9px 0.9px #000000;
+}
+.layer01 h1 {
+  font-size: 2.857rem;
+  font-weight: normal;
+  padding: 20px 0;
+}
+.layer01 p {
+  font-size: 1.299rem;
+  line-height: 30px;
+  margin: 0 auto;
+  width: 45%;
+}
+.layer01 .vessel {
+  padding-top: 20px;
+}
+.layer01 .vessel .deviceImage img {
+  display: block;
+  margin: 60px auto 0;
+}
+
+.layer02 .vessel .iconImage {
+  width: 33.33%;
+}
+.layer02 .vessel .iconImage .innerIconImage {
+  margin: 60px 0;
+  padding: 0 30px;
+  text-align: center;
+}
+.layer02 .vessel .iconImage .innerIconImage h2 {
+  font-size: 1.9rem;
+  font-weight: 100;
+  /*line-height: 30px;*/
+  padding-bottom: 20px;
+}
+.layer02 .vessel .iconImage .innerIconImage > span {
+  background-color: #ccdee9;
+  box-shadow: 0 0 0 0 rgba(200, 95, 66, 0.4) inset, 0 0 0 10px rgba(255, 255, 255, 0.6) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 30px;
+  /*padding: 42px;
+  width: 72px;*/
+  width: 160px;
+  height: 160px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.layer02 .vessel .iconImage .innerIconImage > span.iconImageOne {
+  background: #ccdee9 url(../../assests/icon1.png) no-repeat center center;
+}
+.layer02 .vessel .iconImage .innerIconImage > span.iconImageTwo {
+  background: #ccdee9 url(../../assests/icon2.png) no-repeat center center;
+}
+.layer02 .vessel .iconImage .innerIconImage > span.iconImageThree {
+  background: #ccdee9 url(../../assests/icon3.png) no-repeat center center;
+}
+.layer02 .vessel .iconImage .innerIconImage > span:hover {
+  /*rgba(200,95,66, 0.4)*/
+  box-shadow: inset 0 0 0 30px rgba(0, 0, 0, 0.4), inset 0 0 0 10px rgba(255, 255, 255, 0.8), 0 1px 2px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.layer02 .vessel .txtMiddle {
+  border-top: 1px solid #585858;
+  font-size: 2rem;
+  line-height: 0;
+  margin: 40px 0 60px;
+  text-align: center;
+}
+.layer02 .vessel .txtMiddle > span {
+  background: #ffffff none repeat scroll 0 0;
+  /*color: #585858;*/
+  font-weight: normal;
+  padding: 0 40px;
+}
+.layer02 .vessel .txtMiddle .center {
+  margin: 60px 0 40px;
+}
+.layer02 .vessel .txtMiddle .center > p {
+  color: #777777;
+  font-size: 0.529em;
+  font-weight: normal;
+  line-height: 30px;
+  margin: 20px auto;
+  text-transform: none;
+  width: 56%;
+}
+.layer02 .vessel .txtMiddle .center > p:before {
+  content: url("../../assests/comma1.png");
+  margin-right: 10px;
+  /*background-image: url("../Images/comma1.png");
+  background-position: 16% top;
+  background-repeat: no-repeat;
+  background-size: auto auto;
+  content: "";
+  display: inline-block;
+  height: 30px;
+  width: 48px;*/
+}
+.layer02 .vessel .txtMiddle .center > p:after {
+  content: url("../../assests/comma2.png");
+  margin-left: 10px;
+  position: relative;
+  top: 6px;
+  vertical-align: top;
+  /*background-image: url("../Images/comma2.png");
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: auto auto;
+  content: "";
+  display: inline-block;
+  height: 30px;
+  position: relative;
+  top: 18px;
+  width: 48px;*/
+}
+.layer02 .vessel .txtMiddle .center > div {
+  display: table;
+  margin: 0 auto;
+  /*width: 26%;*/
+  width: 260px;
+  /*max-width: 20px;*/
+}
+.layer02 .vessel .txtMiddle .center > div > img {
+  display: table-cell;
+  /*vertical-align: middle;*/
+}
+.layer02 .vessel .txtMiddle .center > div > p {
+  display: table-cell;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: middle;
+  padding-left: 20px;
+}
+.layer02 .vessel .txtMiddle .center > div > p:first-line {
+  font-size: 16px;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+.stickyNav {
+  background: url(../../assests/bottomBg0.png) repeat;
+  -moz-box-shadow: inset 0 8px 4px -8px #696868, inset 0 -8px 4px -8px #696868;
+  -webkit-box-shadow: inset 0 8px 4px -8px #696868, inset 0 -8px 4px -8px #696868;
+  box-shadow: inset 0 8px 4px -8px #696868, inset 0 -8px 4px -8px #696868;
+}
+.stickyNav .vessel > div {
+  padding: 30px 0;
+}
+.stickyNav .vessel ul li {
+  padding: 14px 20px;
+}
+.stickyNav .vessel ul li a {
+  /*line-height: 40px;*/
+  color: #000000;
+}
+.stickyNav .btn {
+  box-shadow: none;
+  margin: 0;
+}
+
+.layer04 {
+  background: url(../../assests/bottomBg0.png) repeat;
+  /*box-shadow: inset 0px 5px 10px 1px #000000;
+  width: 110%;
+     margin-left:-5%;
+     margin-right: -5%;
+     -webkit-box-shadow: inset 0px 5px 10px 1px #000000;*/
+  -moz-box-shadow: inset 0 8px 4px -8px #696868, inset 0 -8px 4px -8px #696868;
+  -webkit-box-shadow: inset 0 8px 4px -8px #696868, inset 0 -8px 4px -8px #696868;
+  box-shadow: inset 0 8px 4px -8px #696868, inset 0 -8px 4px -8px #696868;
+}
+.layer04 .vessel h2 {
+  font-size: 30px;
+  font-weight: normal;
+  margin-bottom: 50px;
+}
+.layer04 .vessel ul {
+  margin: 0 auto;
+  width: 700px;
+}
+.layer04 .vessel ul li {
+  padding: 0;
+  width: 700px/5;
+}
+.layer04 .vessel ul li a {
+  text-align: center;
+}
+.layer04 .vessel ul li a img {
+  height: 40px;
+  -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  -ms-transition: -ms-transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out;
+}
+.layer04 .vessel ul li a img:hover {
+  transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+}
+.layer04 .vessel ul li a span {
+  color: #000000;
+  display: block;
+  font-weight: normal;
+  margin-top: 18px;
+  color: #BCBBBB;
+  font-size: 1rem;
+}
+
+footer {
+  background-color: #E3E3E3;
+}
+footer .vessel .commonPadding {
+  padding: 20px 0;
+}
+footer .vessel .commonPadding ul li {
+  border-right: 1px solid #000000;
+  padding: 0 10px;
+}
+footer .vessel .commonPadding ul li:last-child {
+  border-right: none;
+}
+footer .vessel .commonPadding ul li a {
+  /*border-right: 1px solid #000000;*/
+  color: #000000;
+  font-weight: normal;
+}
+footer .vessel .commonPadding span {
+  float: right;
+  display: block;
+}
+
+/* Media queries */
+@media only screen and (min-width: 960px) and (max-width: 1240px) {
+  .vessel {
+    width: 90%;
+  }
+
+  .layer01 p {
+    width: 50%;
+  }
+
+  .layer02 .vessel {
+    /*.iconImage {
+    	width: 100%;
+    	float: none;
+
+    	.innerIconImage {
+    		margin: 90px 0;
+    	}
+    }*/
+  }
+  .layer02 .vessel .txtMiddle .center {
+    /*margin: 30px 0;*/
+  }
+  .layer02 .vessel .txtMiddle .center > p {
+    /*line-height: 42px;*/
+    /*width: 90%;*/
+  }
+  .layer02 .vessel .txtMiddle .center > div > p {
+    /*padding-left: 10px;*/
+  }
+
+  .layer04 .vessel ul {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .layer04 .vessel ul li {
+    width: 20%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .vessel {
+    width: 90%;
+  }
+
+  .layer01 {
+    /*.btn {
+        width: 32%;
+    }*/
+  }
+  .layer01 p {
+    width: 50%;
+  }
+  .layer01 .vessel {
+    /*.deviceImage img {
+    	width: 100%;
+    }*/
+  }
+
+  .layer02 .vessel .iconImage {
+    width: 100%;
+    float: none;
+  }
+  .layer02 .vessel .iconImage .innerIconImage {
+    margin: 90px 0;
+  }
+  .layer02 .vessel .txtMiddle .center {
+    margin: 30px 0;
+  }
+  .layer02 .vessel .txtMiddle .center > p {
+    line-height: 42px;
+    width: 90%;
+  }
+  .layer02 .vessel .txtMiddle .center > div > p {
+    padding-left: 10px;
+  }
+
+  .layer04 .vessel ul {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .layer04 .vessel ul li {
+    width: 20%;
+  }
+}
+/* Default Mobile device  */
+@media only screen and (max-width: 767px) {
+  hr {
+    display: block;
+  }
+
+  .vessel {
+    width: 90%;
+  }
+
+  iframe {
+    width: 100%;
+    height: 300px;
+  }
+
+  .stickyNav .vessel div ul {
+    display: none;
+  }
+
+  .layer01 {
+    /*.btn {
+        width: 70%;
+    }*/
+  }
+  .layer01 header .vessel ul li {
+    padding: 20px 10px;
+  }
+  .layer01 h1 {
+    font-size: 40px;
+  }
+  .layer01 p {
+    font-size: 18px;
+    /*font-weight: normal;*/
+    line-height: 28px;
+    /*margin: 0 auto;*/
+    width: 100%;
+  }
+  .layer01 .vessel .deviceImage img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .layer02 .vessel {
+    margin: 75px auto;
+  }
+  .layer02 .vessel .iconImage {
+    width: 100%;
+    float: none;
+    /*height: 100%;*/
+  }
+  .layer02 .vessel .iconImage .innerIconImage {
+    margin: 30px 0;
+    padding: 0;
+  }
+  .layer02 .vessel .iconImage .innerIconImage h2 {
+    padding-bottom: 0;
+  }
+  .layer02 .vessel .txtMiddle {
+    border-top: none;
+    line-height: normal;
+  }
+  .layer02 .vessel .txtMiddle > span {
+    padding: 0;
+  }
+  .layer02 .vessel .txtMiddle .center {
+    margin: 30px 0;
+  }
+  .layer02 .vessel .txtMiddle .center > p {
+    line-height: 30px;
+    width: 100%;
+    /*&:before {
+        content: url(../Images/comma1.png);
+        margin-right: 10px;
+    }
+    &:after {
+        content: url("../Images/comma2.png");
+        margin-left: 10px;
+        position: relative;
+        top: 20px;
+    }*/
+  }
+  .layer02 .vessel .txtMiddle .center > div {
+    /* width: 90%;*/
+  }
+  .layer02 .vessel .txtMiddle .center > div > p {
+    padding-left: 10px;
+  }
+
+  .layer04 {
+    /*&::before {
+    	content: " ";
+    	width: 0;
+    	height: 0;
+    	border-style: solid;
+    	border-width: calc(100% - 3em);
+    	background: #grey;
+    }*/
+  }
+  .layer04 .vessel h2 {
+    /*font-size: 30px;
+       font-weight: normal;
+       margin-bottom: 50px;*/
+  }
+  .layer04 .vessel ul {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .layer04 .vessel ul li {
+    margin-bottom: 40px;
+    width: 50%;
+    /*a {
+    	text-align: center;
+
+    	img {
+    		height: 40px;
+    	}
+
+    	span {
+    		color: #000000;
+    	    display: block;
+    	    font-weight: normal;
+    	    margin-top: 18px;
+    	    color: #BCBBBB;
+    	    font-size: 1rem;
+    	}
+    }*/
+  }
+  .layer04 .vessel ul li:last-child {
+    margin: 0px auto;
+    float: none;
+  }
+
+  footer {
+    /*background-color: #E3E3E3;*/
+  }
+  footer .vessel .commonPadding ul {
+    float: none;
+    display: block;
+  }
+  footer .vessel .commonPadding > div {
+    padding: 12px 10px;
+    line-height: 20px;
+    float: none;
+    display: block;
+    /*display: block;*/
+  }
+}
+/*@media only screen and (max-width: 767px) and (orientation: landscape) {
+	footer {
+		.vessel {
+			.commonPadding {
+				ul {
+					float: none;
+					display: block;
+				}
+
+				> div {
+					padding: 8px 5px;
+					line-height: 0;
+					float: right;				}
+			}
+		}
+	}
+}*/
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  /*.layer02 {
+  	.vessel {
+  		.iconImage {
+  			float: none;
+  			display: table;
+  			content: "";
+  			clear: both;
+
+  			.innerIconImage {
+  				display: table;
+  				content: "";
+  				clear: both;
+  				margin: 30px 0;
+
+  				> span {
+  					float: left;
+  					margin: 10% 0px;
+  				}
+  				> div {
+  					float: right;
+  					width: 60%;
+  				}
+  			}
+  		}
+  	}	
+  }*/
+  /*.layer02 {
+  	.vessel {
+  		.iconImage {
+
+
+  			.innerIconImage {
+
+  				margin: 30px 0;
+
+  				h2 {
+  					padding-bottom: 0;
+  				}
+  				> span {
+
+  				}
+  				> div {
+
+  				}
+  			}
+  		}
+  	}	
+  }*/
+  .layer04 .vessel h2 {
+    /*font-size: 30px;
+       font-weight: normal;
+       margin-bottom: 50px;*/
+  }
+  .layer04 .vessel ul {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .layer04 .vessel ul li {
+    /*margin-bottom: 40px;*/
+    width: 20%;
+    /*a {
+    	text-align: center;
+
+    	img {
+    		height: 40px;
+    	}
+
+    	span {
+    		color: #000000;
+    	    display: block;
+    	    font-weight: normal;
+    	    margin-top: 18px;
+    	    color: #BCBBBB;
+    	    font-size: 1rem;
+    	}
+    }*/
+  }
+  .layer04 .vessel ul li:last-child {
+    margin: 0px auto;
+    float: left;
+  }
+}
