@@ -4,7 +4,7 @@ import deviceImage from "../assests/deviceImg.png"
 import CustomDropdown from "../components/dropdown";
 import Card from "../components/card";
 
-class Home extends Component {
+export default React.memo(class Home extends Component {
 
   state = {
     jobTypeList: [],
@@ -105,6 +105,4 @@ class Home extends Component {
       </>
     );
   }
-}
- 
-export default Home;
+})

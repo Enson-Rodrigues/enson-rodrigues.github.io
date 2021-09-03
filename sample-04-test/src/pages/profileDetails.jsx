@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Kid from "../assests/kid.jpg"
 import axios from "axios";
  
-class ProfileDetails extends Component {
+export default React.memo(class ProfileDetails extends Component {
   constructor(props){
       super(props)
 
@@ -68,6 +68,4 @@ class ProfileDetails extends Component {
       </>
     );
   }
-}
- 
-export default ProfileDetails;
+})

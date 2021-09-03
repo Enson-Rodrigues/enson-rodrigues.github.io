@@ -60,7 +60,8 @@ class Home extends Component {
           t.stockName === thing.stockName
         ))
       )
-      //var sortArrayObject2 = [...new Set(sortArrayObject.map(item => item.stockName))]
+      //var sortArrayObject2 = new Set(sortArrayObject);
+      console.log(sortArrayObject2);
       
       if(this.state.oldStockData.length == 0) {
         this.setState({

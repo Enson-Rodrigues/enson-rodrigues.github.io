@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CustomButton from "./customButton";
 import Kid from "../assests/kid.jpg"
  
-class Card extends Component {
+export default React.memo(class Card extends Component {
 
   constructor(props){
     super(props)
@@ -43,6 +43,4 @@ class Card extends Component {
       </>
     );
   }
-}
- 
-export default Card;
+})

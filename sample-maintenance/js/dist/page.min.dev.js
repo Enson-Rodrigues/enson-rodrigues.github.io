@@ -1,5 +1,13 @@
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 // Accordion JS below 
 var acc = document.getElementsByClassName("accordion");
 
@@ -48,24 +56,21 @@ function printNumber() {
 //First class function : Ability to be used as a values 
 // Hoisting
 
-
-var a = 100;
+/*let a = 100;
 var b = 10;
-var c = 4;
-
-if (true) {
-  //console.log(a);
-  console.log(b); //console.log(c);
-
-  var _c = 2;
-  console.log(_c);
-  var b = 20; //let a;
-
-  console.log(a);
-  a = 12;
-  console.log(a);
+const c = 4;
+if(true){
+    //console.log(a);
+    console.log(b);
+    //console.log(c);
+    const c = 2;
+    console.log(c);
+    var b = 20;
+    //let a;
+    console.log(a);
+    a=12;
+    console.log(a);
 }
-
 console.log(a);
 console.log(b);
 console.log(c);
@@ -73,18 +78,18 @@ console.log(c);
 function hoistingDisplay() {
   var b = 40;
   console.log(b);
-  console.log("funct" + c);
+  console.log("funct"+c);
 }
-
 hoistingDisplay();
-console.log(b); // Closure encapsulation and data hiding 
+console.log(b);*/
+// Closure encapsulation and data hiding 
+
 
 function counter() {
   var count = 0;
 
   function increament() {
-    ++count;
-    console.log(count);
+    ++count; //console.log(count);
   }
 
   return increament;
@@ -100,8 +105,7 @@ function Check(param) {
   var count = param;
 
   this.increament = function () {
-    ++count;
-    console.log(count);
+    ++count; //console.log(count);
   };
 
   return {
@@ -193,10 +197,6 @@ var filter = sortArray.filter(function (ele, index, arr) {
 var reduce = sortArray.reduce(function (initial, sum) {
   return initial + sum;
 }); //console.log("Reduce "+reduce);
-
-var useSet = new Set(sortArray); //console.log(useSet.size);
-//console.log(useSet.has(11));
-//console.log([...useSet]);
 // String and Array
 
 var str = "Heloothere"; //console.log(str.slice(0, -4));
@@ -206,3 +206,38 @@ var array = [1, 2, 3, 4, 5, 6, 7, 8, 9]; //console.log(array.slice(0, 4));
 //console.log(array.splice(4, 2, "Enson"));
 //console.log(array)
 // Async, wait and promise kindly check ... React js for more details
+///////////////////////////////////////////// Map & Weal Maps ///////////////////////////////////
+// Data structures 
+// map binds arbitary values to other values 
+
+var x = {};
+var z = {
+  num: 1
+};
+var newMap = new Map();
+newMap.set(x, 'check').set(z, 'check1').set(x, 'efc');
+/*for ([key, value] of newMap.entries()) {
+  console.log(key, value);
+}*/
+//console.log(newMap);
+
+console.log(_toConsumableArray(newMap));
+{
+  var y = {
+    a: [1, 3, 2]
+  };
+  var kmap = new WeakMap();
+  kmap.set(y, "hello");
+}
+console.log(kmap);
+var useSet = new Set(sortArray); //console.log(Array.from(useSet));
+//console.log(useSet.size);
+//console.log(useSet.has(11));
+//console.log([...useSet]);
+
+var useSetObject = new WeakSet([{
+  a: 1
+}, {
+  b: 2
+}]);
+console.log(useSetObject);

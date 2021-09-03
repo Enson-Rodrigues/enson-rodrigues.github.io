@@ -1,24 +1,8 @@
 import React, { Component } from "react";
+import Loading from "../components/loading";
+import PopUp from "../components/pop";
 import axios from "axios";
 import data from "../data/employeeData.json"
- 
-const Loading = (param) => {
-  return <>
-    <img alt="loader" className="loading" src={param.url}/>
-  </>
-}
-
-const PopUp = (param) => {
-  console.log(param);
-  return <>
-    <div id="myNav" className="overlay">
-      <div className={`overlay-content ${param.data.employee_age > 60 ? "red": "green" }`}>
-        <span className="close" onClick={()=>param.call()}>&times;</span>
-        <p>Hello {param.data.employee_name} you are {param.data.employee_age > 60 ? param.data.employee_age + " yrs of age so retired": param.data.employee_age + " yrs of age so not retired"}</p>
-      </div>
-    </div>
-  </>
-}
 
 class About extends Component {
 
@@ -27,8 +11,7 @@ class About extends Component {
     this.state = {
       employee: [],
       isLoading: true,
-      popUpBoolean: false,
-      imgURL: 'https://media.giphy.com/media/y1ZBcOGOOtlpC/source.gif'
+      popUpBoolean: false
     }
 
     console.log(this.state);
@@ -51,7 +34,7 @@ class About extends Component {
     let loadingStructure, popUpStructure;
       
     if(this.state.isLoading) {
-      loadingStructure = <Loading url={this.state.imgURL}></Loading>;
+      loadingStructure = <Loading></Loading>;
     }
 
     if(this.state.popUpBoolean) {

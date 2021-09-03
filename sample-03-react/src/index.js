@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './sass/reset.min.css';
-import './sass/dist/base.css';
 import AppContainer from './AppContainer';
 import reportWebVitals from './reportWebVitals';
 

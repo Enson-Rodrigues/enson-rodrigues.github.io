@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
  
-export default class CustomDropdown extends Component {
+export default React.memo(class CustomDropdown extends Component {
 
     constructor() {
         super();
@@ -73,4 +73,4 @@ export default class CustomDropdown extends Component {
         </>
         );
     }
-}
+})
