@@ -47,12 +47,13 @@ export default class CustomDropdown extends Component {
 
     render() {
         const jobs = this.props.jobs;
+        const localStorageJobType = this.props.jobType;
 
         return (
         <>
             
             <div>
-                <a className="btn" onClick={this.ctaClick}>{this.state.value ? this.state.value : "Select"}<span className={"triangle " + (this.state.dropDownOpen ? 'up' : 'down')}></span>
+                <a className="btn" onClick={this.ctaClick}>{this.state.value ? this.state.value : localStorageJobType ? localStorageJobType : "Select"}<span className={"triangle " + (this.state.dropDownOpen ? 'up' : 'down')}></span>
                     {(this.state.dropDownOpen ? 
                         <ul className="dropDownList">
                             {(jobs.length !== 0 ? 

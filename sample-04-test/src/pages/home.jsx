@@ -15,17 +15,16 @@ class Home extends Component {
 
   jobDetails = (params) => {
     console.log("job details");
-    console.log(params);
-    
+    localStorage.setItem('jobType', params);
+
     this.setState({
-      job: params,
+      job: params || localStorage.getItem('jobType'),
       cardDisplay: true
     });
 
     ( async () => {
       try{
         let jobFullDetails = await axios.get(`https://5f231b740e9f660016d88d23.mockapi.io/api/users?jobtype=${params}`);
-        console.log(jobFullDetails.data);
 
         this.setState({
           jobFullDetails: jobFullDetails.data,
@@ -59,12 +58,7 @@ class Home extends Component {
             //a.id - b.id
             a.jobType.localeCompare(b.jobType)
           )
-          //console.log(newfilteredResponse);
 
-          /*this.setState({
-            jobType: filteredResponse
-          })*/
-          //console.log(this.state.jobType);
           this.setState({ jobTypeList:  newfilteredResponse}, ()=>{console.log(this.state)});
 
         } catch {
@@ -72,6 +66,11 @@ class Home extends Component {
         }
       }
     )();
+    let check = localStorage.getItem('jobType');
+    
+    if(check != undefined && check != "" && check != null)
+    this.jobDetails(check);
+    console.log(check);
   }
 
   render() {
@@ -87,6 +86,7 @@ class Home extends Component {
                   jobs={this.state.jobTypeList}
                   label="Select the Job list from drop down"
                   callBack={this.jobDetails}
+                  jobType={this.state.job}
                 />
               </div>
             </div>
