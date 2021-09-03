@@ -4,9 +4,14 @@ import CustomButton from "./customButton";
  
 class Card extends Component {
 
-  state = {
-    cardDisplay: false
+  constructor(props){
+    super(props)
+
+    this.state = {
+      cardDisplay: false
+    }
   }
+
   componentDidMount () {
     console.log(this.props.jobFullDetails);
   }
@@ -23,7 +28,7 @@ class Card extends Component {
                   <img alt="dummy" src={target.avatar}/>
                   <h1>{target.name}</h1>
                   <p className="title">Job Type {target.jobtype}</p>
-                  <Link to={"/forwarding" + target.id}>
+                  <Link className="skinCTA" to={"/" + target.id}>
                     <CustomButton 
                       ctaText="Read More"
                       customClass="skinCTA">

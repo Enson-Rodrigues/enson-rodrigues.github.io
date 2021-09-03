@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    Route,
+    Route, Switch, // Switch is required to idetify the correct route
     BrowserRouter
 } from "react-router-dom";
 import './scss/main.scss';
@@ -12,6 +12,7 @@ import MenuNav from "./components/menuNav";
 //Pages
 import Home from "./pages/home";
 import Forwarding from "./pages/forwarding";
+import ProfileDetails from "./pages/profileDetails";
 
 function App() {
   return (
@@ -23,8 +24,11 @@ function App() {
           <MenuNav type={true}></MenuNav>
             <div className="">
               <div className="vessel">
-                <Route exact path="/" component={Home}/> 
-                <Route exact path="/forwarding:user_id" component={Forwarding}/>
+                <Switch>
+                  <Route exact path="/" component={Home}/>
+                  <Route exact path="/forwarding" component={Forwarding}/>
+                  <Route exact path="/:userId" component={ProfileDetails}/>
+                </Switch>
               </div>
             </div>
         </div>
