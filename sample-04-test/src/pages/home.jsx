@@ -71,6 +71,7 @@ class Home extends Component {
     if(check != undefined && check != "" && check != null)
     this.jobDetails(check);
     console.log(check);
+    
   }
 
   render() {
