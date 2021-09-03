@@ -8,15 +8,38 @@
 	margin: 20px;
 	padding: 20px;
 	background: #a04f4f6b;
+
+	img {
+		width: 100%;
+	}
   }
 
 .profileCard {
 	background: #383e1b6b;
 	max-width: 500px;
+	text-align: left;
+
+	> div {
+		padding-left: 20px;
+		width: 70%;
+		box-sizing: border-box;
+
+		h1 {
+			padding-top: 0;
+		}
+	}
+
+	img {
+		width: 30%;
+    	float: left;
+	}
 
 	p.title {
 		width: 100%;
 		font-size: 14px;
 		text-align: left;
+	}
+	p strong {
+		font-size: 16px;
 	}
 }

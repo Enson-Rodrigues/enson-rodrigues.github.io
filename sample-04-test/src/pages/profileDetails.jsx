@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Kid from "../assests/kid.jpg"
 import axios from "axios";
  
 class ProfileDetails extends Component {
@@ -43,21 +44,23 @@ class ProfileDetails extends Component {
         {this.state.profileDetails != "undefined" ? 
             <div className="text-center">
                 <div className="profileCard" >
-                    <img alt="dummy" src={this.state.profileDetails.avatar}/>
-                    <h1>{this.state.profileDetails.name}</h1>
-                    <p className="title">Job Title: {this.state.profileDetails.title}</p>
-                    <p className="title">Job Decription: {this.state.profileDetails.jobdescription}</p>
-                    <p className="title">Job Desc: {this.state.profileDetails.desc}</p>
-                    <p className="title">Job Type {this.state.profileDetails.jobtype}</p>
-                    <p className="title">Job Phone No:  {this.state.profileDetails.phoneno}</p>
-                    <p className="title">Job Email {this.state.profileDetails.email}</p>
-                    <p className="title">Job State {this.state.profileDetails.state}</p>
-                    <p className="title">Job Company {this.state.profileDetails.company}</p>
-                    <p className="title">Job City {this.state.profileDetails.city}</p>
-                    <p className="title">Job Created on {new Date(this.state.profileDetails.createdAt).toLocaleDateString('en-US', {weekday: "long", 
-                        year: "numeric", 
-                        month: "short", 
-                        day: "numeric" })}</p>
+                    <img alt="dummy" src={Kid}/>
+                    <div className="fr">
+                      <h1>{this.state.profileDetails.name}</h1>
+                      <p className="title"><strong>Job Title:</strong> {this.state.profileDetails.title}</p>
+                      <p className="title"><strong>Job Decription:</strong> {this.state.profileDetails.jobdescription}</p>
+                      <p className="title"><strong>Job Desc:</strong> {this.state.profileDetails.desc}</p>
+                      <p className="title"><strong>Job Type:</strong> {this.state.profileDetails.jobtype}</p>
+                      <p className="title"><strong>Job Phone No:</strong>  {this.state.profileDetails.phoneno}</p>
+                      <p className="title"><strong>Job Email:</strong> {this.state.profileDetails.email}</p>
+                      <p className="title"><strong>Job State:</strong> {this.state.profileDetails.state}</p>
+                      <p className="title"><strong>Job Company:</strong> {this.state.profileDetails.company}</p>
+                      <p className="title"><strong>Job City:</strong> {this.state.profileDetails.city}</p>
+                      <p className="title"><strong>Job Created on</strong> {new Date(this.state.profileDetails.createdAt).toLocaleDateString('en-US', {weekday: "long", 
+                          year: "numeric", 
+                          month: "short", 
+                          day: "numeric" })}</p>
+                    </div>
                 </div>
             </div>
         : ""}

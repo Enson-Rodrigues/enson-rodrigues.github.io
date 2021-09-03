@@ -1,0 +1,40 @@
+.card, .profileCard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  background: #a04f4f6b;
+}
+.card img, .profileCard img {
+  width: 100%;
+}
+
+.profileCard {
+  background: #383e1b6b;
+  max-width: 500px;
+  text-align: left;
+}
+.profileCard > div {
+  padding-left: 20px;
+  width: 70%;
+  box-sizing: border-box;
+}
+.profileCard > div h1 {
+  padding-top: 0;
+}
+.profileCard img {
+  width: 30%;
+  float: left;
+}
+.profileCard p.title {
+  width: 100%;
+  font-size: 14px;
+  text-align: left;
+}
+.profileCard p strong {
+  font-size: 16px;
+}
