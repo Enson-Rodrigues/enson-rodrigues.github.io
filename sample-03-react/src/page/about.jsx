@@ -62,7 +62,7 @@ class About extends Component {
   }
 
   componentDidMount() {
-    let jsonFile = true;
+    let jsonFile = false;
 
     if(jsonFile) {
       setTimeout(() => { 
@@ -114,15 +114,16 @@ class About extends Component {
     var jsonPromise = new Promise(function(resolve, reject) {
       // JSON.parse throws an error if you feed it some
       // invalid JSON, so this implicitly rejects:
-      resolve(axios.get(`http://dummy.restapiexample.com/api/v1/employees`));
+      //resolve(axios.get(`http://dummy.restapiexample.com/api/v1/employees`));
+      resolve(axios.get(`http://localhost:3000/employees_data`));
     });
     
     jsonPromise.then(function(data) {
       
       // This never happens:
-      console.log("It worked!", data.data.data);
+      console.log("It worked!", data.data);
       that.setState({
-        employee: data.data.data,
+        employee: data.data,
         isLoading: false
       });
       console.log(that.state.employee);

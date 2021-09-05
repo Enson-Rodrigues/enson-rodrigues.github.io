@@ -23,8 +23,8 @@ export default React.memo(class Home extends Component {
     });
 
     ( async () => {
-      try{
-        let jobFullDetails = await axios.get(`https://5f231b740e9f660016d88d23.mockapi.io/api/users?jobtype=${params}`);
+      try{ //https://5f231b740e9f660016d88d23.mockapi.io/api/users?jobtype=${params}
+        let jobFullDetails = await axios.get(`http://localhost:4000/users?jobtype=${params}`);
 
         this.setState({
           jobFullDetails: jobFullDetails.data,
@@ -42,8 +42,8 @@ export default React.memo(class Home extends Component {
     (
       async () => {
         console.log("executed");
-        try {
-          let response = await axios.get("https://5f231b740e9f660016d88d23.mockapi.io/api/usersJobtypes");
+        try { //https://5f231b740e9f660016d88d23.mockapi.io/api/usersJobtypes
+          let response = await axios.get(`http://localhost:4000/usersJobtypes`);
           
 
           // filter the array by jobType

@@ -8,7 +8,7 @@ export default React.memo(class ProfileDetails extends Component {
       super(props)
 
       this.state = {
-          profileDetails: {}
+          profileDetails: []
       }
   }
 
@@ -20,15 +20,14 @@ export default React.memo(class ProfileDetails extends Component {
     console.log(this.props.match.params.userId);
     let userId = this.props.match.params.userId;
 
-      (async ()=> {
-        try{
+      (async ()=> { //http://localhost:4000/users?id=${userId}
+        try{ //https://5f231b740e9f660016d88d23.mockapi.io/api/users/${userId}
             let userIDDetails = await axios.get(`https://5f231b740e9f660016d88d23.mockapi.io/api/users/${userId}`);
             //console.log(userIDDetails.data);
 
             this.setState({
                 profileDetails: userIDDetails.data
             })
-            console.log(this.state);
         }catch{
 
         }
@@ -41,7 +40,7 @@ export default React.memo(class ProfileDetails extends Component {
         <Link to={"/"}>
             <h4>Go Back</h4>
         </Link>
-        {this.state.profileDetails != "undefined" ? 
+        {this.state.profileDetails ? 
             <div className="text-center">
                 <div className="profileCard" >
                     <img alt="dummy" src={Kid}/>
