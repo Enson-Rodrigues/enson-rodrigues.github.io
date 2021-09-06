@@ -29,7 +29,7 @@ export default React.memo(class CustomDropdown extends Component {
     }
     handleOutsideClick = (e) => {
         // ignore clicks on the component itself
-        const domNode = ReactDOM.findDOMNode(this);
+       const domNode = ReactDOM.findDOMNode(this);
 
         if (!domNode || !domNode.contains(e.target)) {
             this.setState({
@@ -48,6 +48,7 @@ export default React.memo(class CustomDropdown extends Component {
     render() {
         const jobs = this.props.jobs;
         const localStorageJobType = this.props.jobType;
+        
 
         return (
         <>
