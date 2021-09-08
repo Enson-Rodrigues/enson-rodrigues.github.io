@@ -1,13 +1,5 @@
 "use strict";
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
 // Accordion JS below 
 var acc = document.getElementsByClassName("accordion");
 
@@ -220,24 +212,71 @@ newMap.set(x, 'check').set(z, 'check1').set(x, 'efc');
   console.log(key, value);
 }*/
 //console.log(newMap);
+//console.log([...newMap])
 
-console.log(_toConsumableArray(newMap));
 {
   var y = {
     a: [1, 3, 2]
   };
   var kmap = new WeakMap();
   kmap.set(y, "hello");
-}
-console.log(kmap);
+} //console.log(kmap);
+
 var useSet = new Set(sortArray); //console.log(Array.from(useSet));
 //console.log(useSet.size);
 //console.log(useSet.has(11));
 //console.log([...useSet]);
+//let useSetObject =  new WeakSet([{a:1},{b:2}]);
+//console.log(useSetObject);
 
-var useSetObject = new WeakSet([{
-  a: 1
-}, {
-  b: 2
-}]);
-console.log(useSetObject);
+console.log("simple array logic for  1 1 1 2 2 3 3 4 4 5 5");
+var thtd = [1, 1, 1, 3, 3, 4, 5, 5];
+
+var coutElements = function coutElements(params) {
+  //console.log(params)
+  var count = 0;
+
+  for (var _i = 0; _i < params.length; _i++) {
+    if (params.indexOf(params[_i] + 1) != -1) {
+      count = ++count;
+    }
+  } //console.log(count);
+
+}; //console.log(coutElements(thtd));
+// 1st Sample
+
+
+var ghjf = ["5", "2", "C", "D", "+"];
+
+var sumDisplay = function sumDisplay(params) {
+  console.log(params);
+  var myArr = [];
+
+  for (var _i2 = 0; _i2 < params.length; _i2++) {
+    if (!isNaN(params[_i2])) {
+      console.log("yes number");
+      myArr.push(parseInt(params[_i2]));
+    }
+
+    switch (params[_i2]) {
+      case "C":
+        myArr.pop();
+        break;
+
+      case "D":
+        myArr.push(myArr[myArr.length - 1] * 2);
+        break;
+
+      case "+":
+        myArr.push(myArr[myArr.length - 1] + myArr[myArr.length - 2]);
+        break;
+    }
+  }
+
+  var MynewArry = myArr.reduce(function (sum, start) {
+    return sum + start;
+  });
+  console.log(MynewArry);
+};
+
+console.log(sumDisplay(ghjf));
