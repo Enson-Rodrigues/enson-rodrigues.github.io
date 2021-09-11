@@ -1,10 +1,27 @@
 import './App.css';
+import Header from './components/Header';
+import AddContact from './pages/AddContact';
+import ContactList from './pages/ContactList';
 
-function App() {
+const App = () => {
+  const contacts = [
+    {
+      id: "1",
+      name: "Enson",
+      email: "text@test.com"
+    }, {
+      id: "2",
+      name: "Jason",
+      email: "abc@dc.com"
+    }
+  ];
+
   return (
-    <h1>
-      hello there 
-    </h1>
+    <div className="ui container">
+      <Header/>
+      <AddContact/>
+      <ContactList contacts={contacts}/>
+    </div>
   );
 }
 
