@@ -1,4 +1,9 @@
 import { useState, useEffect } from 'react';
+import {
+  Route, Switch, // Switch is required to idetify the correct route
+  BrowserRouter
+} from "react-router-dom";
+import { uuid } from "uuidv4";
 import './App.css';
 import Header from './components/Header';
 import AddContact from './pages/AddContact';
@@ -29,15 +34,24 @@ const App = () => {
 
   const addContactHandler = (contact) => {
     console.log(contact);
+    console.log(uuid());
     //spread operator to hold the previous array of objects 
-    setContacts([...contacts, contact]);
+    setContacts([...contacts, {id: uuid(), ...contact}]);
+  }
+
+  const removeContactHandler = (id) => {
+    console.log("app "+id);
+    const newContacts = contacts.filter((contact)=>{
+      return contact.id !== id;
+    });
+    setContacts(newContacts);
   }
 
   return (
     <div className="ui container">
       <Header/>
       <AddContact addContactHandler={addContactHandler}/>
-      <ContactList contacts={contacts}/>
+      <ContactList contacts={contacts} getContactId={removeContactHandler}/>
     </div>
   );
 }
