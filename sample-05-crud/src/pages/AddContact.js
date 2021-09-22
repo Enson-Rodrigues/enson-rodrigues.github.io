@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 const AddContact = (props) => {
     const [name, setName] = useState('');
@@ -20,6 +21,7 @@ const AddContact = (props) => {
         nameInput.current.value=""; emailInput.current.value = "";
         setName("");
         setEmail("");
+        props.history.push("/");
     }
 
     return (

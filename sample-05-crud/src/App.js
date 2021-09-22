@@ -50,8 +50,20 @@ const App = () => {
   return (
     <div className="ui container">
       <Header/>
-      <AddContact addContactHandler={addContactHandler}/>
-      <ContactList contacts={contacts} getContactId={removeContactHandler}/>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" 
+          render={(props) => (
+            <ContactList {...props} contacts={contacts} getContactId={removeContactHandler}/>
+          )}/>
+          <Route exact path="/add" 
+          render={(props)=>(
+            <AddContact {...props} addContactHandler={addContactHandler}/>
+          )} />
+          {/*<AddContact addContactHandler={addContactHandler}/>
+          <ContactList contacts={contacts} getContactId={removeContactHandler}/>*/}
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

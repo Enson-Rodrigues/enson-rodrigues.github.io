@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
+import { Link } from "react-router-dom";
 import ContactCard from "../components/ContactCard";
 
-const ContactList = (props) => {
+
+const ContactList = React.memo((props) => {
     console.log(props);
 
     const deleteContactHandler = (id) => {
@@ -12,7 +14,6 @@ const ContactList = (props) => {
     const renderContactList = props.contacts.map((contact)=>{
         return (
             <>
-            {contact.id}
             <ContactCard contactDetails={contact} deleteContactHandler={deleteContactHandler} key={contact.id} ></ContactCard>
             </>
         )
@@ -20,10 +21,15 @@ const ContactList = (props) => {
 
     return (
         <div className="ui celled list">
-            <h2>Contact List</h2>
+            
+            <h2>Contact List
+                <Link to="/add">
+                    <button className="ui button blue right">Add Contact</button>
+                </Link>
+            </h2>
             {renderContactList}
         </div>
     )
-}
+})
 
 export default ContactList;
