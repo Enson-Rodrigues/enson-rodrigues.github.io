@@ -9,6 +9,9 @@ const AddContact = (props) => {
 
     const submitValue = (e) => {
         e.preventDefault();
+        if(name === "") {
+           console.log(e.target);
+        }
         if(name === "" || email === "") {
             console.log("u cannot keep the input field empty")
             return;
@@ -35,6 +38,7 @@ const AddContact = (props) => {
                     placeholder="Name"
                     onChange={e => setName(e.target.value)}
                     ref={nameInput}/>
+                    <p className="error">{}</p>
                 </div>
                 <div className="field">
                     <label>Email</label>

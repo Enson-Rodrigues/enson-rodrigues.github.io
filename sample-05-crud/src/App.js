@@ -8,6 +8,8 @@ import './App.css';
 import Header from './components/Header';
 import AddContact from './pages/AddContact';
 import ContactList from './pages/ContactList';
+import PersonalDetails from './pages/PersonalDetails';
+import api from '../src/api/contactAxio'
 
 const App = () => {
   /*const contacts = [
@@ -23,20 +25,30 @@ const App = () => {
   ];*/
   const [contacts, setContacts] = useState([]);
 
+  const getContacts = async () => {
+    let response = await api.get("/contacts");
+    return response.data;
+  }
+
   useEffect(()=>{
-    const retriveContacts = JSON.parse(localStorage.getItem("contacts"));
-    if(retriveContacts) setContacts(retriveContacts);
+    //const retriveContacts = JSON.parse(localStorage.getItem("contacts"));
+    const retriveContacts = async () => {
+      let allContacts = await getContacts();
+      if(allContacts) setContacts(allContacts);
+    } 
+    retriveContacts();
+    //if(retriveContacts) setContacts(retriveContacts);
   }, [])
 
-  useEffect(()=>{
+  /*useEffect(()=>{
     localStorage.setItem("contacts", JSON.stringify(contacts))
-  }, [contacts])
+  }, [contacts])*/
 
   const addContactHandler = (contact) => {
-    console.log(contact);
-    console.log(uuid());
+    
     //spread operator to hold the previous array of objects 
     setContacts([...contacts, {id: uuid(), ...contact}]);
+
   }
 
   const removeContactHandler = (id) => {
@@ -52,17 +64,21 @@ const App = () => {
       <Header/>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" 
+        <Route exact path="/" 
           render={(props) => (
             <ContactList {...props} contacts={contacts} getContactId={removeContactHandler}/>
           )}/>
+          <Route exact path="/contactlist/:id" 
+          render={(props)=>(
+            <PersonalDetails {...props} commponent={PersonalDetails}/>
+          )} />
           <Route exact path="/add" 
           render={(props)=>(
             <AddContact {...props} addContactHandler={addContactHandler}/>
           )} />
-          {/*<AddContact addContactHandler={addContactHandler}/>
-          <ContactList contacts={contacts} getContactId={removeContactHandler}/>*/}
         </Switch>
+        
+          
       </BrowserRouter>
     </div>
   );

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ContactCard from "../components/ContactCard";
 
 
-const ContactList = React.memo((props) => {
+const ContactList = (props) => {
     console.log(props);
 
     const deleteContactHandler = (id) => {
@@ -30,6 +30,6 @@ const ContactList = React.memo((props) => {
             {renderContactList}
         </div>
     )
-})
+}
 
 export default ContactList;
