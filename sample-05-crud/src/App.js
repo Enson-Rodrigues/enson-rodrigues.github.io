@@ -9,6 +9,7 @@ import Header from './components/Header';
 import AddContact from './pages/AddContact';
 import ContactList from './pages/ContactList';
 import PersonalDetails from './pages/PersonalDetails';
+import EditContact from './pages/EditContacts';
 import api from '../src/api/contactAxio'
 
 const App = () => {
@@ -67,6 +68,12 @@ const App = () => {
     setContacts(newContacts);
   }
 
+  const editContactHandler = async (contact) => {
+    await api.put(`/contacts/${contact.id}`, contact);
+    const newContacts =  await getContacts();
+    setContacts(newContacts);
+  }
+
   return (
     <div className="ui container">
       <Header/>
@@ -83,6 +90,10 @@ const App = () => {
           <Route exact path="/add" 
           render={(props)=>(
             <AddContact {...props} addContactHandler={addContactHandler}/>
+          )} />
+          <Route exact path="/edit" 
+          render={(props)=>(
+            <EditContact {...props} editContactHandler={editContactHandler}/>
           )} />
         </Switch>
       </BrowserRouter>
