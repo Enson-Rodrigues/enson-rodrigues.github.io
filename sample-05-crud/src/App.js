@@ -13,17 +13,6 @@ import EditContact from './pages/EditContacts';
 import api from '../src/api/contactAxio'
 
 const App = () => {
-  /*const contacts = [
-    {
-      id: "1",
-      name: "Enson",
-      email: "text@test.com"
-    }, {
-      id: "2",
-      name: "Jason",
-      email: "abc@dc.com"
-    }
-  ];*/
   const [contacts, setContacts] = useState([]);
 
   const getContacts = async () => {
@@ -46,6 +35,7 @@ const App = () => {
   }, [contacts])*/
 
   const addContactHandler = async (contact) => {
+    console.log("Add executed");
     console.log(contact);
     const requestObject = {
       id: uuid(),
@@ -58,7 +48,7 @@ const App = () => {
   }
 
   const removeContactHandler = async (id) => {
-    console.log("app "+id);
+    console.log("Remove executed");
     await api.delete(`/contacts/${id}`);
 
     // logic to delete the match frm array of objects
@@ -69,6 +59,7 @@ const App = () => {
   }
 
   const editContactHandler = async (contact) => {
+    console.log("Edit executed");
     await api.put(`/contacts/${contact.id}`, contact);
     const newContacts =  await getContacts();
     setContacts(newContacts);
