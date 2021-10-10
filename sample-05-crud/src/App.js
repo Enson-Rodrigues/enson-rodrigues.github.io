@@ -44,17 +44,25 @@ const App = () => {
     localStorage.setItem("contacts", JSON.stringify(contacts))
   }, [contacts])*/
 
-  const addContactHandler = (contact) => {
-    
+  const addContactHandler = async (contact) => {
+    console.log(contact);
+    const requestObject = {
+      id: uuid(),
+      ...contact
+    }
+    const response = await api.post('/contacts', requestObject)
     //spread operator to hold the previous array of objects 
-    setContacts([...contacts, {id: uuid(), ...contact}]);
+    setContacts([...contacts, response.data]);
 
   }
 
-  const removeContactHandler = (id) => {
+  const removeContactHandler = async (id) => {
     console.log("app "+id);
-    const newContacts = contacts.filter((contact)=>{
-      return contact.id !== id;
+    await api.delete(`/contacts/${id}`);
+
+    // logic to delete the match frm array of objects
+    const newContacts = contacts.filter((ele)=>{
+      return ele.id !== id;
     });
     setContacts(newContacts);
   }
@@ -77,8 +85,6 @@ const App = () => {
             <AddContact {...props} addContactHandler={addContactHandler}/>
           )} />
         </Switch>
-        
-          
       </BrowserRouter>
     </div>
   );

@@ -14,7 +14,7 @@ const PersonalDetails = (props) => {
                 <div className="content">
                     <div className="header">{name}</div>
                     <div className="meta">
-                        <a>Friends</a>
+                        <a>Friends id no: {id}</a>
                     </div>
                     <div className="description">
                         {email}

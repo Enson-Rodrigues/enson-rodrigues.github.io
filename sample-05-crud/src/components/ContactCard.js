@@ -20,8 +20,7 @@ const ContactCard = (props) => {
                 </Link>    
                 <div className="right floated content" style={{marginTop: "1%", color: "red"}}>
                     <i className="trash alternate outline icon" onClick={()=> props.deleteContactHandler(id)}></i>
-                </div>
-                                                                                      
+                </div>                                                               
         </div>
     )
 }

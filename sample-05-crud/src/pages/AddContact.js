@@ -37,7 +37,8 @@ const AddContact = (props) => {
                     name="name" 
                     placeholder="Name"
                     onChange={e => setName(e.target.value)}
-                    ref={nameInput}/>
+                    ref={nameInput}
+                    />
                     <p className="error">{}</p>
                 </div>
                 <div className="field">
@@ -46,7 +47,8 @@ const AddContact = (props) => {
                     name="email" 
                     placeholder="E-mail"
                     onChange={e => setEmail(e.target.value)}
-                    ref={emailInput}/>
+                    ref={emailInput}
+                    />
                 </div>
                 <button className="ui button blue">Add</button>
             </form>
