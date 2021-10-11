@@ -16,7 +16,7 @@ const EditContact = (props) => {
            console.log(e.target);
         }
         if(editName === "" || editEmail === "") {
-            console.log("u cannot keep the input field empty")
+            console.log("u cannot keep the input field empty");
             return;
         }
         const frmdetails = {

@@ -4,7 +4,7 @@ import ContactCard from "../components/ContactCard";
 
 
 const ContactList = (props) => {
-    console.log(props);
+    console.log(props.contacts.length);
 
     const deleteContactHandler = (id) => {
         console.log("contact list "+id);
@@ -27,7 +27,7 @@ const ContactList = (props) => {
                     <button className="ui button blue right">Add Contact</button>
                 </Link>
             </h2>
-            {renderContactList}
+            {props.contacts.length != 0 ? (renderContactList) : <h5>We are sorry no data available for now... Please do add details by clicking "Add Contact"</h5>}
         </div>
     )
 }
