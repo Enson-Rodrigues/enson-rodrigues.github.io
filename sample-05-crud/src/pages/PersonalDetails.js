@@ -1,15 +1,17 @@
 import React from "react";
+import UserImage from "../assests/user.png"
 import { Link } from "react-router-dom";
 
 const PersonalDetails = (props) => {
     console.log(props);
-    const {email, id, name} = props.location.state.contact
+    const {email, id, name, imageUrl} = props.location.state.contact
 
     return (
         <>
             <div className="ui link cards">
                 <div className="card">
                     <div className="image">
+                        <img src={imageUrl ? imageUrl :UserImage} alt="image"/>
                     </div>
                 <div className="content">
                     <div className="header">{name}</div>

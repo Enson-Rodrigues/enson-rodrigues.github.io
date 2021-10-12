@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const AddContact = (props) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [image, setImage] = useState(null);
     const nameInput = React.useRef();
     const emailInput = React.useRef();
 
@@ -12,13 +13,14 @@ const AddContact = (props) => {
         if(name === "") {
            console.log(e.target);
         }
-        if(name === "" || email === "") {
+        if(name === "" || email === "" || image === null) {
             console.log("u cannot keep the input field empty")
             return;
         }
         const frmdetails = {
             'name' : name,
-            'email' : email
+            'email' : email,
+            'imageUrl' : image
         }
         props.addContactHandler(frmdetails);
         nameInput.current.value=""; emailInput.current.value = "";
@@ -26,6 +28,13 @@ const AddContact = (props) => {
         setEmail("");
         props.history.push("/");
     }
+
+    const onImageChange = event => {
+        if (event.target.files && event.target.files[0]) {
+            let img = event.target.files[0];
+            setImage(URL.createObjectURL(img));
+        }
+    };
 
     return (
         <div className="ui main">
@@ -49,6 +58,10 @@ const AddContact = (props) => {
                     onChange={e => setEmail(e.target.value)}
                     ref={emailInput}
                     />
+                </div>
+                <div className="field">
+                    <label>Image</label>
+                    <input type="file" name="myImage" onChange={onImageChange} />
                 </div>
                 <button className="ui button blue">Add</button>
             </form>

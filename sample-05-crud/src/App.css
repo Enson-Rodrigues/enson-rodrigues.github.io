@@ -45,3 +45,12 @@
 .right {
   float: right;
 }
+
+.trash {
+  cursor: pointer;
+}
+
+.ui.input {
+  width: 100%;
+  margin: 20px 0;
+}

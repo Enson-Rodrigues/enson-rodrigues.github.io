@@ -14,17 +14,28 @@ import api from '../src/api/contactAxio'
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+  const [loadingFlag, setLoadingFlag] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(false);
 
   const getContacts = async () => {
     let response = await api.get("/contacts");
+    setLoadingFlag(true);
     return response.data;
   }
 
   useEffect(()=>{
     //const retriveContacts = JSON.parse(localStorage.getItem("contacts"));
     const retriveContacts = async () => {
-      let allContacts = await getContacts();
-      if(allContacts) setContacts(allContacts);
+      try {
+        let allContacts = await getContacts();
+        if(allContacts) setContacts(allContacts);
+      } catch (e) {
+        console.error(e.message);
+        setErrorMsg(true);
+        setLoadingFlag(false);
+      }
     } 
     retriveContacts();
     //if(retriveContacts) setContacts(retriveContacts);
@@ -41,10 +52,27 @@ const App = () => {
       id: uuid(),
       ...contact
     }
+    
     const response = await api.post('/contacts', requestObject)
+    
     //spread operator to hold the previous array of objects 
     setContacts([...contacts, response.data]);
+    
 
+  }
+  const searchHandler = (searchValue) => {
+    setSearchTerm(searchValue);
+
+    if(searchValue != "") {
+      const searchContacts = contacts.filter((target)=>{
+        return Object.values(target)
+                .join(" ").toLowerCase()
+                .includes(searchValue.toLowerCase());
+      });
+      setSearchResult(searchContacts);
+    } else {
+      setSearchResult(contacts);
+    }
   }
 
   const removeContactHandler = async (id) => {
@@ -72,7 +100,7 @@ const App = () => {
         <Switch>
         <Route exact path="/" 
           render={(props) => (
-            <ContactList {...props} contacts={contacts} getContactId={removeContactHandler}/>
+            <ContactList {...props} contacts={searchTerm.length > 1 ? searchResult : contacts} loading={loadingFlag} errorMsg={errorMsg} searchTerm={searchTerm} searchKeyword={searchHandler} getContactId={removeContactHandler}/>
           )}/>
           <Route exact path="/contactlist/:id" 
           render={(props)=>(

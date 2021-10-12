@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
 const EditContact = (props) => {
-    const {email, id, name} = props.location.state.contact;
+    const {email, id, name, imageUrl} = props.location.state.contact;
     console.log(props);
 
     const [editName, setName] = useState(name);
     const [editEmail, setEmail] = useState(email);
+    const [editImage, setImage] = useState(imageUrl);
     const nameInput = React.useRef();
     const emailInput = React.useRef();
 
@@ -22,7 +23,8 @@ const EditContact = (props) => {
         const frmdetails = {
             'id': id,
             'name' : editName,
-            'email' : editEmail
+            'email' : editEmail,
+            'imageUrl' : editImage
         }
         props.editContactHandler(frmdetails);
         nameInput.current.value=""; emailInput.current.value = "";

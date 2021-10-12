@@ -1,14 +1,19 @@
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import { Link } from "react-router-dom";
 import ContactCard from "../components/ContactCard";
 
 
 const ContactList = (props) => {
-    console.log(props.contacts.length);
+    console.log(props);
+    const inputEle = useRef("");
 
     const deleteContactHandler = (id) => {
         console.log("contact list "+id);
         props.getContactId(id);
+    }
+
+    const getSearchTerm = () => {
+        props.searchKeyword(inputEle.current.value)
     }
 
     const renderContactList = props.contacts.map((contact)=>{
@@ -27,7 +32,22 @@ const ContactList = (props) => {
                     <button className="ui button blue right">Add Contact</button>
                 </Link>
             </h2>
-            {props.contacts.length != 0 ? (renderContactList) : <h5>We are sorry no data available for now... Please do add details by clicking "Add Contact"</h5>}
+            <div className="ui search">
+                <div className="ui icon input">
+                    <input ref={inputEle} type="text" placeholder="Search Contacts" className="prompt" value={props.searchTerm} onChange={getSearchTerm}/>
+                    <i className="search icon"></i>
+                </div>
+            </div>
+            {props.loading ? 
+                (props.contacts.length != 0 ? 
+                    (renderContactList) : 
+                    <h5>We are sorry no data available for now... Please do add details by clicking "Add Contact"</h5>
+                )
+            
+                :(props.errorMsg ? <h3>Network Error, Sorry for inconviennce</h3>:<h1>Loading.....</h1>)}
+
+            
+            
         </div>
     )
 }
