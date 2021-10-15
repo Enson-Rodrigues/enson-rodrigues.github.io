@@ -17,7 +17,7 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [loadingFlag, setLoadingFlag] = useState(false);
-  const [errorMsg, setErrorMsg] = useState(false);
+  const [errorMsgFlag, setErrorMsgFlag] = useState(false);
 
   const getContacts = async () => {
     let response = await api.get("/contacts");
@@ -33,7 +33,7 @@ const App = () => {
         if(allContacts) setContacts(allContacts);
       } catch (e) {
         console.error(e.message);
-        setErrorMsg(true);
+        setErrorMsgFlag(true);
         setLoadingFlag(false);
       }
     } 
@@ -65,10 +65,11 @@ const App = () => {
 
     if(searchValue != "") {
       const searchContacts = contacts.filter((target)=>{
-        return Object.values(target)
+        return Object.values(target).slice(1,3)
                 .join(" ").toLowerCase()
                 .includes(searchValue.toLowerCase());
       });
+      console.log(searchContacts);
       setSearchResult(searchContacts);
     } else {
       setSearchResult(contacts);
@@ -100,7 +101,12 @@ const App = () => {
         <Switch>
         <Route exact path="/" 
           render={(props) => (
-            <ContactList {...props} contacts={searchTerm.length > 1 ? searchResult : contacts} loading={loadingFlag} errorMsg={errorMsg} searchTerm={searchTerm} searchKeyword={searchHandler} getContactId={removeContactHandler}/>
+            <ContactList {...props} contacts={searchTerm.length > 1 ? searchResult : contacts} 
+            loading={loadingFlag} 
+            errorMsgFlag={errorMsgFlag} 
+            searchTerm={searchTerm} 
+            searchKeyword={searchHandler} 
+            getContactId={removeContactHandler}/>
           )}/>
           <Route exact path="/contactlist/:id" 
           render={(props)=>(

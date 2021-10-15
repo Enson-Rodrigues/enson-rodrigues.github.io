@@ -105,8 +105,8 @@ function Check(param) {
   };
 }
 
-var sample1 = new Check(2);
-console.log("contructor"); //sample1.outside();
+var sample1 = new Check(2); //console.log("contructor");
+//sample1.outside();
 //sample1.outside();
 //sample1.increament();
 //The destructuring assignment syntax is a JavaScript expression 
@@ -198,7 +198,7 @@ var array = [1, 2, 3, 4, 5, 6, 7, 8, 9]; //console.log(array.slice(0, 4));
 //console.log(array.splice(4, 2, "Enson"));
 //console.log(array)
 // Async, wait and promise kindly check ... React js for more details
-///////////////////////////////////////////// Map & Weal Maps ///////////////////////////////////
+///////////////////////////////////////////// Map & Weak Maps ///////////////////////////////////
 // Data structures 
 // map binds arbitary values to other values 
 
@@ -211,8 +211,8 @@ newMap.set(x, 'check').set(z, 'check1').set(x, 'efc');
 /*for ([key, value] of newMap.entries()) {
   console.log(key, value);
 }*/
-//console.log(newMap);
-//console.log([...newMap])
+
+console.log(newMap); //console.log([...newMap])
 
 {
   var y = {
@@ -228,8 +228,8 @@ var useSet = new Set(sortArray); //console.log(Array.from(useSet));
 //console.log([...useSet]);
 //let useSetObject =  new WeakSet([{a:1},{b:2}]);
 //console.log(useSetObject);
+//console.log("simple array logic for  1 1 1 2 2 3 3 4 4 5 5")
 
-console.log("simple array logic for  1 1 1 2 2 3 3 4 4 5 5");
 var thtd = [1, 1, 1, 3, 3, 4, 5, 5];
 
 var coutElements = function coutElements(params) {
@@ -249,12 +249,12 @@ var coutElements = function coutElements(params) {
 var ghjf = ["5", "2", "C", "D", "+"];
 
 var sumDisplay = function sumDisplay(params) {
-  console.log(params);
+  //console.log(params)
   var myArr = [];
 
   for (var _i2 = 0; _i2 < params.length; _i2++) {
     if (!isNaN(params[_i2])) {
-      console.log("yes number");
+      //console.log("yes number");
       myArr.push(parseInt(params[_i2]));
     }
 
@@ -275,8 +275,5 @@ var sumDisplay = function sumDisplay(params) {
 
   var MynewArry = myArr.reduce(function (sum, start) {
     return sum + start;
-  });
-  console.log(MynewArry);
-};
-
-console.log(sumDisplay(ghjf));
+  }); //console.log(MynewArry);
+}; //console.log(sumDisplay(ghjf));

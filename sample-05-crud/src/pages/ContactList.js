@@ -34,7 +34,11 @@ const ContactList = (props) => {
             </h2>
             <div className="ui search">
                 <div className="ui icon input">
-                    <input ref={inputEle} type="text" placeholder="Search Contacts" className="prompt" value={props.searchTerm} onChange={getSearchTerm}/>
+                    <input 
+                    ref={inputEle} type="text" 
+                    placeholder="Search Contacts" className="prompt" 
+                    value={props.searchTerm} 
+                    onChange={getSearchTerm}/>
                     <i className="search icon"></i>
                 </div>
             </div>
@@ -44,7 +48,7 @@ const ContactList = (props) => {
                     <h5>We are sorry no data available for now... Please do add details by clicking "Add Contact"</h5>
                 )
             
-                :(props.errorMsg ? <h3>Network Error, Sorry for inconviennce</h3>:<h1>Loading.....</h1>)}
+                :(props.errorMsgFlag ? <h3>Network Error, Sorry for inconviennce</h3>:<h1>Loading.....</h1>)}
 
             
             
