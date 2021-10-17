@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import {
   Route, Switch, // Switch is required to idetify the correct route
   BrowserRouter
@@ -13,11 +13,12 @@ import EditContact from './pages/EditContacts';
 import api from '../src/api/contactAxio'
 
 const App = () => {
-  const [contacts, setContacts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [contacts, setContacts] = useState(()=> {console.log("contacts 01");return []});
+  console.log("App executed");
+  const [searchTerm, setSearchTerm] = useState(()=> {console.log("search term 01");return ""});
   const [searchResult, setSearchResult] = useState([]);
   const [loadingFlag, setLoadingFlag] = useState(false);
-  const [errorMsgFlag, setErrorMsgFlag] = useState(false);
+  const [errorMsgFlag, setErrorMsgFlag] = useState(false);  
 
   const getContacts = async () => {
     let response = await api.get("/contacts");
@@ -25,18 +26,31 @@ const App = () => {
     return response.data;
   }
 
+  /*const retriveContacts = useCallback(async () => {
+    try {
+      let allContacts = await getContacts();
+      if(allContacts) setContacts(allContacts);
+      console.log("I am hit everytym")
+    } catch (e) {
+      console.error(e.message);
+      setErrorMsgFlag(true);
+      setLoadingFlag(false);
+    }
+  }, [])*/
+
   useEffect(()=>{
     //const retriveContacts = JSON.parse(localStorage.getItem("contacts"));
     const retriveContacts = async () => {
       try {
         let allContacts = await getContacts();
         if(allContacts) setContacts(allContacts);
+        console.log("Useeffect executed");
       } catch (e) {
         console.error(e.message);
         setErrorMsgFlag(true);
         setLoadingFlag(false);
       }
-    } 
+    }
     retriveContacts();
     //if(retriveContacts) setContacts(retriveContacts);
   }, [])
@@ -57,9 +71,8 @@ const App = () => {
     
     //spread operator to hold the previous array of objects 
     setContacts([...contacts, response.data]);
-    
-
   }
+
   const searchHandler = (searchValue) => {
     setSearchTerm(searchValue);
 

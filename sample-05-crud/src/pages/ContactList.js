@@ -1,11 +1,14 @@
 import React, {useState, useRef} from "react";
 import { Link } from "react-router-dom";
 import ContactCard from "../components/ContactCard";
+import CComponent from "../example/CComponent";
+import FComponent from "../example/FComponent";
 
 
 const ContactList = (props) => {
     console.log(props);
     const inputEle = useRef("");
+    const [normalFlag, setNormalFlag] = useState(false);
 
     const deleteContactHandler = (id) => {
         console.log("contact list "+id);
@@ -19,19 +22,26 @@ const ContactList = (props) => {
     const renderContactList = props.contacts.map((contact)=>{
         return (
             <>
-            <ContactCard contactDetails={contact} deleteContactHandler={deleteContactHandler} key={contact.id} ></ContactCard>
+                <ContactCard contactDetails={contact} 
+                            deleteContactHandler={deleteContactHandler} 
+                            key={contact.id} ></ContactCard>
             </>
         )
     })
 
     return (
         <div className="ui celled list">
-            
+            <hr/>
+            <button  className="ui button blue" onClick={()=>setNormalFlag(!normalFlag)}>Toggle Class Component</button>
+            {normalFlag ? <FComponent/>: ""}
+            <hr/>
+
             <h2>Contact List
                 <Link to="/add">
                     <button className="ui button blue right">Add Contact</button>
                 </Link>
             </h2>
+            
             <div className="ui search">
                 <div className="ui icon input">
                     <input 
@@ -51,7 +61,7 @@ const ContactList = (props) => {
                 :(props.errorMsgFlag ? <h3>Network Error, Sorry for inconviennce</h3>:<h1>Loading.....</h1>)}
 
             
-            
+
         </div>
     )
 }

@@ -207,21 +207,33 @@ var z = {
   num: 1
 };
 var newMap = new Map();
-newMap.set(x, 'check').set(z, 'check1').set(x, 'efc');
+newMap.set(x, 'check').set(z, 'check1').set(x, 'efc'); //z = null;
+//console.log(newMap);
+
 /*for ([key, value] of newMap.entries()) {
   console.log(key, value);
 }*/
+//console.log(newMap);
+//console.log([...newMap]) // 2 dimentional Array
 
-console.log(newMap); //console.log([...newMap])
-
-{
-  var y = {
-    a: [1, 3, 2]
-  };
-  var kmap = new WeakMap();
-  kmap.set(y, "hello");
-} //console.log(kmap);
-
+var myMap = new Map();
+var myWeakMap = new WeakMap();
+var obj1 = {
+  "firstName": "Enson",
+  "LastName": "Rod"
+};
+var obj2 = {
+  "firstName": "Jason",
+  "LastName": "Rod"
+};
+myMap.set(obj1, "myMap data");
+myWeakMap.set(obj2, "myWeakMap data");
+console.log(myMap.get(obj1));
+console.log(myWeakMap.get(obj2));
+obj1 = null;
+obj2 = null;
+console.log(myMap);
+console.log(myWeakMap);
 var useSet = new Set(sortArray); //console.log(Array.from(useSet));
 //console.log(useSet.size);
 //console.log(useSet.has(11));
