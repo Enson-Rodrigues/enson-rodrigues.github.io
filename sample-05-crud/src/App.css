@@ -51,6 +51,9 @@
 }
 
 .ui.input {
-  width: 100%;
+  width: 80%;
+  margin: 20px 0;
+}
+.ui.button.abc {
   margin: 20px 0;
 }

@@ -11,11 +11,14 @@ import ContactList from './pages/ContactList';
 import PersonalDetails from './pages/PersonalDetails';
 import EditContact from './pages/EditContacts';
 import api from '../src/api/contactAxio'
+import CommonContext from './context/CommonContext';
 
 const App = () => {
-  const [contacts, setContacts] = useState(()=> {console.log("contacts 01");return []});
+  const [contacts, setContacts] = useState(()=> {console.log("contacts 01"); return []});
   console.log("App executed");
-  const [searchTerm, setSearchTerm] = useState(()=> {console.log("search term 01");return ""});
+  
+  const [searchTerm, setSearchTerm] = useState(()=> {console.log("search term 01"); return ""});
+
   const [searchResult, setSearchResult] = useState([]);
   const [loadingFlag, setLoadingFlag] = useState(false);
   const [errorMsgFlag, setErrorMsgFlag] = useState(false);  
@@ -91,6 +94,7 @@ const App = () => {
 
   const removeContactHandler = async (id) => {
     console.log("Remove executed");
+
     await api.delete(`/contacts/${id}`);
 
     // logic to delete the match frm array of objects
@@ -102,6 +106,7 @@ const App = () => {
 
   const editContactHandler = async (contact) => {
     console.log("Edit executed");
+
     await api.put(`/contacts/${contact.id}`, contact);
     const newContacts =  await getContacts();
     setContacts(newContacts);
@@ -114,12 +119,17 @@ const App = () => {
         <Switch>
         <Route exact path="/" 
           render={(props) => (
-            <ContactList {...props} contacts={searchTerm.length > 1 ? searchResult : contacts} 
-            loading={loadingFlag} 
-            errorMsgFlag={errorMsgFlag} 
-            searchTerm={searchTerm} 
-            searchKeyword={searchHandler} 
-            getContactId={removeContactHandler}/>
+            <CommonContext.Provider value={{
+              loadingFlag,
+              errorMsgFlag,
+              searchTerm, setSearchTerm, 
+              myContacts: () => { return searchTerm.length > 1 ? searchResult : contacts },
+              searchHandler,
+              removeContactHandler
+              }}>
+                <ContactList {...props} commponent={ContactList} />
+            </CommonContext.Provider>
+            
           )}/>
           <Route exact path="/contactlist/:id" 
           render={(props)=>(
