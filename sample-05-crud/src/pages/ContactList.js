@@ -9,21 +9,12 @@ import CommonContext from "../context/CommonContext";
 const ContactList = (props) => {
     console.log(props);
     const inputEle = useRef("");
-    const previousCount = useRef("");
     
     const {loadingFlag, errorMsgFlag, searchTerm, setSearchTerm, searchHandler, removeContactHandler, myContacts} = useContext(CommonContext);
+    
     console.log(useContext(CommonContext));
-    /*
-    1. DOM refrence
-    2. useRef to store previous value 
-    3. hold mutable value prevent re-rendering of component*/
-
+    
     const [normalFlag, setNormalFlag] = useState(false);
-    const [counter, setCounter] = useState(0);
-
-    useEffect(()=>{
-        previousCount.current = counter;
-    })
 
     const deleteContactHandler = (id) => {
         console.log("contact list "+id);
@@ -55,18 +46,13 @@ const ContactList = (props) => {
         )
     })
 
+
     return (
         <div className="ui celled list">
-            {searchTerm}
 
             <hr/>
             <button  className="ui button blue" onClick={()=>setNormalFlag(!normalFlag)}>Toggle Class Component</button>
             {normalFlag ? <FComponent/>: ""}
-            <hr/>
-
-            <h3>Random Counter: {counter}</h3>
-            <h4>Previous Counter: {previousCount.current}</h4>
-            <button  className="ui button blue" onClick={(e) => setCounter(Math.ceil(Math.random()*100))}>Generate Radom Number</button>
             <hr/>
             <h2>Contact List
                 <Link to="/add">
