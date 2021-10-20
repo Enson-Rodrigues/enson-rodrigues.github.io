@@ -119,30 +119,33 @@ const App = () => {
         <Switch>
         <Route exact path="/" 
           render={(props) => (
+            // use context used to pass the data globally "CommonContext"
             <CommonContext.Provider value={{
-              loadingFlag,
-              errorMsgFlag,
-              searchTerm, setSearchTerm, 
-              myContacts: () => { return searchTerm.length > 1 ? searchResult : contacts },
-              searchHandler,
-              removeContactHandler
+                loadingFlag,
+                errorMsgFlag,
+                searchTerm, setSearchTerm, 
+                myContacts: () => { return searchTerm.length > 1 ? searchResult : contacts },
+                searchHandler,
+                removeContactHandler
               }}>
-                <ContactList {...props} commponent={ContactList} />
+                <ContactList commponent={ContactList} />
             </CommonContext.Provider>
-            
           )}/>
           <Route exact path="/contactlist/:id" 
-          render={(props)=>(
-            <PersonalDetails {...props} commponent={PersonalDetails}/>
-          )} />
+            render={(props)=>(
+              <PersonalDetails {...props} commponent={PersonalDetails}/>
+            )} 
+          />
           <Route exact path="/add" 
-          render={(props)=>(
-            <AddContact {...props} addContactHandler={addContactHandler}/>
-          )} />
+            render={(props)=>(
+              <AddContact {...props} addContactHandler={addContactHandler}/>
+            )} 
+          />
           <Route exact path="/edit" 
-          render={(props)=>(
-            <EditContact {...props} editContactHandler={editContactHandler}/>
-          )} />
+            render={(props)=>(
+              <EditContact {...props} editContactHandler={editContactHandler}/>
+            )} 
+          />
         </Switch>
       </BrowserRouter>
     </div>

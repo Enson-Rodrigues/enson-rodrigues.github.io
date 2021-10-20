@@ -5,11 +5,12 @@ import CComponent from "../example/CComponent";
 import FComponent from "../example/FComponent";
 import CommonContext from "../context/CommonContext";
 
-
+//Props are not passed from App.js since using useContext
 const ContactList = (props) => {
     console.log(props);
     const inputEle = useRef("");
     
+    // De structuring of object 
     const {loadingFlag, errorMsgFlag, searchTerm, setSearchTerm, searchHandler, removeContactHandler, myContacts} = useContext(CommonContext);
     
     console.log(useContext(CommonContext));
@@ -39,9 +40,11 @@ const ContactList = (props) => {
     const renderContactList = myContacts().map((contact)=>{
         return (
             <>
-                <ContactCard contactDetails={contact} 
-                            deleteContactHandler={deleteContactHandler} 
-                            key={contact.id}></ContactCard>
+                <ContactCard 
+                    contactDetails={contact} 
+                    deleteContactHandler={deleteContactHandler} 
+                    key={contact.id}>
+                </ContactCard>
             </>
         )
     })
@@ -78,9 +81,6 @@ const ContactList = (props) => {
                 )
             
                 :(errorMsgFlag ? <h3>Network Error, Sorry for inconviennce</h3>:<h1>Loading.....</h1>)}
-
-            
-
         </div>
     )
 }
