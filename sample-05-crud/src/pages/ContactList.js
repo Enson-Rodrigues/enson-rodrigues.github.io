@@ -52,11 +52,6 @@ const ContactList = (props) => {
 
     return (
         <div className="ui celled list">
-
-            <hr/>
-            <button  className="ui button blue" onClick={()=>setNormalFlag(!normalFlag)}>Toggle Class Component</button>
-            {normalFlag ? <FComponent/>: ""}
-            <hr/>
             <h2>Contact List
                 <Link to="/add">
                     <button className="ui button blue right">Add Contact</button>
@@ -81,6 +76,15 @@ const ContactList = (props) => {
                 )
             
                 :(errorMsgFlag ? <h3>Network Error, Sorry for inconviennce</h3>:<h1>Loading.....</h1>)}
+
+
+            <br/>
+            <br/>
+            <br/>
+            <hr/>
+            <button  className="ui button blue" onClick={()=>setNormalFlag(!normalFlag)}>Toggle Class Component</button>
+            {normalFlag ? <FComponent/>: ""}
+            <hr/>
         </div>
     )
 }

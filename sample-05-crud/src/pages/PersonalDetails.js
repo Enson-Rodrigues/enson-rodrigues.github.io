@@ -40,18 +40,7 @@ const PersonalDetails = (props) => {
 
     return (
         <>
-            <div className="ui icon input left">
-                    <input 
-                    type="text" 
-                    placeholder="Search Contacts" className="prompt" 
-                    value={inputName} onChange={(e)=>check(e)}/>
-                </div>
-            <h3>Random Counter: {counter}</h3>
-            <h4>Previous Counter: {previousCount.current}</h4>
-            <button  className="ui button blue" onClick={generateRandomNumber}>Generate Radom Number</button>
-            <hr/>
-            factorial of a number is {result}
-            <hr/>
+            
             <div className="ui link cards">
                 <div className="card">
                     <div className="image">
@@ -81,6 +70,20 @@ const PersonalDetails = (props) => {
             <Link to="/">
                 <div className="ui button blue">Back to contact list</div>
             </Link>
+
+            <br/><br/><br/><br/>
+            <div className="ui icon input left">
+                    <input 
+                    type="text" 
+                    placeholder="Search Contacts" className="prompt" 
+                    value={inputName} onChange={(e)=>check(e)}/>
+                </div>
+            <h3>Random Counter: {counter}</h3>
+            <h4>Previous Counter: {previousCount.current}</h4>
+            <button  className="ui button blue" onClick={generateRandomNumber}>Generate Radom Number</button>
+            <hr/>
+            factorial of a number is {result}
+            <hr/>
         </>       
     )
 }

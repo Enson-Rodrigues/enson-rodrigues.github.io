@@ -13,7 +13,7 @@ const AddContact = (props) => {
         if(name === "") {
            console.log(e.target);
         }
-        if(name === "" || email === "" || image === null) {
+        if(name === "" || email === "" ) { //|| image === null
             console.log("u cannot keep the input field empty")
             return;
         }

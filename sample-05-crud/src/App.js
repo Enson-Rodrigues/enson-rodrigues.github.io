@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useReducer } from 'react';
 import {
   Route, Switch, // Switch is required to idetify the correct route
   BrowserRouter
@@ -13,13 +13,61 @@ import EditContact from './pages/EditContacts';
 import api from '../src/api/contactAxio'
 import CommonContext from './context/CommonContext';
 
+const customContact = (contacts, action) => {
+  switch (action.type) {
+    case "add":
+      return contacts = [...contacts, action.payload];
+    
+    case "delete":
+      let filterContacts = contacts.filter((ele)=>{
+        return ele.id != action.payload;
+      })
+      return contacts = filterContacts;
+
+    case "edit":
+      return contacts = action.payload;
+
+    case "initial data":
+      return contacts = action.payload;
+    
+    case "search input":
+      return contacts = action.payload;
+
+    default:
+      return console.log("default");
+  }
+}
+
+const customSearchResult = (searchResult, action) => {
+  switch(action.type) {
+    case "filter search":
+      return searchResult = action.payload.contacts.filter((target)=>{
+        return Object.values(target).slice(1,3)
+                .join(" ").toLowerCase()
+                .includes(action.payload.searchValue.toLowerCase());
+      });
+    
+    case "normal contacts":
+      return searchResult = action.payload;
+
+    default:
+      return console.log("default");
+  }
+}
+
 const App = () => {
-  const [contacts, setContacts] = useState(()=> {console.log("contacts 01"); return []});
+  // "Reducer" best way to alter useState.
+  // Also we can add the logics within reducer function
+  // setContacts is replace with dispatch event to set state
+  const [contacts, contactDispatch] = useReducer( customContact, []);
+  //const [contacts, setContacts] = useState(()=> {console.log("contacts 01"); return []});
   console.log("App executed");
   
   const [searchTerm, setSearchTerm] = useState(()=> {console.log("search term 01"); return ""});
+  
+  const [searchResult, searchDispatch] = useReducer( customSearchResult, []);
 
-  const [searchResult, setSearchResult] = useState([]);
+  //const [searchResult, setSearchResult] = useState([]);
   const [loadingFlag, setLoadingFlag] = useState(false);
   const [errorMsgFlag, setErrorMsgFlag] = useState(false);  
 
@@ -46,7 +94,9 @@ const App = () => {
     const retriveContacts = async () => {
       try {
         let allContacts = await getContacts();
-        if(allContacts) setContacts(allContacts);
+        if(allContacts) contactDispatch({type: "initial data", payload: allContacts});
+        //setContacts(allContacts);
+        
         console.log("Useeffect executed");
       } catch (e) {
         console.error(e.message);
@@ -71,24 +121,31 @@ const App = () => {
     }
     
     const response = await api.post('/contacts', requestObject)
-    
+    contactDispatch({type: "add", payload: response.data});
+
     //spread operator to hold the previous array of objects 
-    setContacts([...contacts, response.data]);
+    //setContacts([...contacts, response.data]);
   }
 
   const searchHandler = (searchValue) => {
     setSearchTerm(searchValue);
 
     if(searchValue != "") {
-      const searchContacts = contacts.filter((target)=>{
+      /*const searchContacts = contacts.filter((target)=>{
         return Object.values(target).slice(1,3)
                 .join(" ").toLowerCase()
                 .includes(searchValue.toLowerCase());
       });
-      console.log(searchContacts);
-      setSearchResult(searchContacts);
+      console.log(searchContacts);*/
+      //setSearchResult(searchContacts);
+      const myObject = {
+        searchValue,
+        contacts
+      }
+      searchDispatch({type: "filter search", payload: myObject})
     } else {
-      setSearchResult(contacts);
+      //setSearchResult(contacts);
+      searchDispatch({type: "normal contacts", payload: contacts})
     }
   }
 
@@ -97,19 +154,25 @@ const App = () => {
 
     await api.delete(`/contacts/${id}`);
 
+    contactDispatch({type: "delete", payload: id});
+
     // logic to delete the match frm array of objects
-    const newContacts = contacts.filter((ele)=>{
-      return ele.id !== id;
-    });
-    setContacts(newContacts);
+    //const newContacts = contacts.filter((ele)=>{
+    //  return ele.id !== id;
+    //});
+    //setContacts(newContacts);
+    
   }
 
   const editContactHandler = async (contact) => {
     console.log("Edit executed");
 
     await api.put(`/contacts/${contact.id}`, contact);
+
     const newContacts =  await getContacts();
-    setContacts(newContacts);
+
+    contactDispatch({type: "edit", payload: newContacts});
+    //setContacts(newContacts);
   }
 
   return (
