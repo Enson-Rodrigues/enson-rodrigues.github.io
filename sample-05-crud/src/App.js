@@ -60,14 +60,13 @@ const App = () => {
   // Also we can add the logics within reducer function
   // setContacts is replace with dispatch event to set state
   const [contacts, contactDispatch] = useReducer( customContact, []);
+  const [searchResult, searchDispatch] = useReducer( customSearchResult, []);
+  
   //const [contacts, setContacts] = useState(()=> {console.log("contacts 01"); return []});
+  //const [searchResult, setSearchResult] = useState([]);
   console.log("App executed");
   
   const [searchTerm, setSearchTerm] = useState(()=> {console.log("search term 01"); return ""});
-  
-  const [searchResult, searchDispatch] = useReducer( customSearchResult, []);
-
-  //const [searchResult, setSearchResult] = useState([]);
   const [loadingFlag, setLoadingFlag] = useState(false);
   const [errorMsgFlag, setErrorMsgFlag] = useState(false);  
 
