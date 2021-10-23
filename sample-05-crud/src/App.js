@@ -10,7 +10,7 @@ import AddContact from './pages/AddContact';
 import ContactList from './pages/ContactList';
 import PersonalDetails from './pages/PersonalDetails';
 import EditContact from './pages/EditContacts';
-import api from '../src/api/contactAxio'
+import http from '../src/api/contactAxio'
 import CommonContext from './context/CommonContext';
 
 const customContact = (contacts, action) => {
@@ -71,7 +71,7 @@ const App = () => {
   const [errorMsgFlag, setErrorMsgFlag] = useState(false);  
 
   const getContacts = async () => {
-    let response = await api.get("/contacts");
+    let response = await http.get("/contacts");
     setLoadingFlag(true);
     return response.data;
   }
@@ -119,7 +119,7 @@ const App = () => {
       ...contact
     }
     
-    const response = await api.post('/contacts', requestObject)
+    const response = await http.post('/contacts', requestObject)
     contactDispatch({type: "add", payload: response.data});
 
     //spread operator to hold the previous array of objects 
@@ -127,6 +127,7 @@ const App = () => {
   }
 
   const searchHandler = (searchValue) => {
+    console.log("I am searchHandler rendered");
     setSearchTerm(searchValue);
 
     if(searchValue != "") {
@@ -151,7 +152,7 @@ const App = () => {
   const removeContactHandler = async (id) => {
     console.log("Remove executed");
 
-    await api.delete(`/contacts/${id}`);
+    await http.delete(`/contacts/${id}`);
 
     contactDispatch({type: "delete", payload: id});
 
@@ -166,7 +167,7 @@ const App = () => {
   const editContactHandler = async (contact) => {
     console.log("Edit executed");
 
-    await api.put(`/contacts/${contact.id}`, contact);
+    await http.put(`/contacts/${contact.id}`, contact);
 
     const newContacts =  await getContacts();
 

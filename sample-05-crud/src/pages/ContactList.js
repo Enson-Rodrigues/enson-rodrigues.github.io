@@ -14,6 +14,10 @@ const ContactList = (props) => {
     const {loadingFlag, errorMsgFlag, searchTerm, setSearchTerm, searchHandler, removeContactHandler, myContacts} = useContext(CommonContext);
     
     console.log(useContext(CommonContext));
+
+    useEffect(()=>{
+        console.log("useEffect of contactlist.js executed");
+    }, [])
     
     const [normalFlag, setNormalFlag] = useState(false);
 

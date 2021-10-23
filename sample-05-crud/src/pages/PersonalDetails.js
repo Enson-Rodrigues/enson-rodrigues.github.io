@@ -13,6 +13,7 @@ const PersonalDetails = (props) => {
     const [inputName, setInputName]= useState("");
     const [counter, setCounter] = useState(0);
     const result = useMemo(()=>factorial(counter), [counter]);
+    //const result = factorial(counter);
     
     useEffect(()=>{
         previousCount.current = counter;
