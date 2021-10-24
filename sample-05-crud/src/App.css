@@ -57,3 +57,7 @@
 .ui.button.abc {
   margin: 20px 0;
 }
+.error {
+  font-size: 12px;
+  color: red;
+}

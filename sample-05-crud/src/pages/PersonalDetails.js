@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef, useMemo} from "react";
+import React, {useEffect, useState, useRef, useMemo, useCallback} from "react";
 import UserImage from "../assests/user.png"
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const PersonalDetails = (props) => {
     const [inputName, setInputName]= useState("");
     const [counter, setCounter] = useState(0);
     const result = useMemo(()=>factorial(counter), [counter]);
-    //const result = factorial(counter);
+    //const result = useCallback(factorial(counter), [counter]);
     
     useEffect(()=>{
         previousCount.current = counter;
@@ -23,21 +23,14 @@ const PersonalDetails = (props) => {
         setCounter(Math.ceil(Math.random()*100));
     }
 
-    function factorial(n) {
-        console.log("I am exeuted FACTORIAL");
-        if(n < 0) {
-            return -1;
-        }
-        if(n===0) {
-            return 1;
-        }
-        return n * factorial(n-1);
-    }
-
     const check= (e) => {
         console.log(e.target.value);
         setInputName(e.target.value);
     }
+
+    const displayName = useCallback(() => {
+        return inputName;
+    }, [inputName]);
 
     return (
         <>
@@ -72,6 +65,8 @@ const PersonalDetails = (props) => {
                 <div className="ui button blue">Back to contact list</div>
             </Link>
 
+            <Name displayName={displayName}></Name>
+
             <br/><br/><br/><br/>
             <div className="ui icon input left">
                     <input 
@@ -87,6 +82,26 @@ const PersonalDetails = (props) => {
             <hr/>
         </>       
     )
+}
+
+const Name = ({displayName}) => {
+    const [value, setValue] = useState("");
+    useEffect(()=>{
+        setValue(displayName());
+    }, [displayName]);
+    console.log("Another component executed");
+    return <p>{`My name is ${value}`}</p>
+};
+
+function factorial(n) {
+    console.log("I am exeuted FACTORIAL");
+    if(n < 0) {
+        return -1;
+    }
+    if(n===0) {
+        return 1;
+    }
+    return n * factorial(n-1);
 }
 
 export default PersonalDetails;
