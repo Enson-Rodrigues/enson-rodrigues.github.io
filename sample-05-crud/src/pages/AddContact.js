@@ -6,9 +6,9 @@ const AddContact = (props) => {
     const [formErrors, setFormErrors] = useState({});
     const [isFormSubmit, setIsFormSubmit] = useState(false);
 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [image, setImage] = useState(null);
+    //const [name, setName] = useState('');
+    //const [email, setEmail] = useState('');
+    //const [image, setImage] = useState(null);
     const nameInput = React.useRef();
     const emailInput = React.useRef();
 
@@ -64,7 +64,7 @@ const AddContact = (props) => {
         }
     }, [formErrors])
 
-    const submitValue = (e) => {
+    /*const submitValue = (e) => {
         e.preventDefault();
         if(name === "") {
            console.log(e.target);
@@ -83,14 +83,14 @@ const AddContact = (props) => {
         setName("");
         setEmail("");
         props.history.push("/");
-    }
+    }*/
 
-    const onImageChange = event => {
+    /*const onImageChange = event => {
         if (event.target.files && event.target.files[0]) {
             let img = event.target.files[0];
             setImage(URL.createObjectURL(img));
         }
-    };
+    };*/
 
     return (
         <div className="ui main">
