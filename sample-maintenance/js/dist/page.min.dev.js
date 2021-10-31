@@ -48,34 +48,39 @@ function printNumber() {
 //First class function : Ability to be used as a values 
 // Hoisting
 
-/*let a = 100;
+
+var a = 100;
 var b = 10;
-const c = 4;
-if(true){
-    //console.log(a);
-    console.log(b);
-    //console.log(c);
-    const c = 2;
-    console.log(c);
-    var b = 20;
-    //let a;
-    console.log(a);
-    a=12;
-    console.log(a);
+var c = 4;
+
+if (true) {
+  //console.log(a);
+  console.log(b); //console.log(c);
+  //const c = 2;
+
+  console.log(c);
+  var b = 20; //let a;
+
+  console.log(a);
+  a = 12;
+  console.log(a);
 }
+
 console.log(a);
 console.log(b);
 console.log(c);
 
 function hoistingDisplay() {
   var b = 40;
+  var a = 2;
+  console.log(a);
   console.log(b);
-  console.log("funct"+c);
+  console.log("funct" + c);
 }
-hoistingDisplay();
-console.log(b);*/
-// Closure encapsulation and data hiding 
 
+hoistingDisplay();
+console.log(a);
+console.log(b); // Closure encapsulation and data hiding 
 
 function counter() {
   var count = 0;

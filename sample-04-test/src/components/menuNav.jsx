@@ -5,7 +5,7 @@ import {
 
 import logo from '../assests/logo.png';
   
-const MenuNav = React.memo((props) => {
+const MenuNav = (props) => {
   console.log(props);
 
   return (
@@ -36,6 +36,6 @@ const MenuNav = React.memo((props) => {
       }
     </>
   );
-});
+};
   
 export default MenuNav;

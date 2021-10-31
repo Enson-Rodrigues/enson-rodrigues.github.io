@@ -13,6 +13,10 @@ export default React.memo(class Home extends Component {
     isDataAvailable: false
   }
 
+  display() {
+    console.log(this.state);
+  }
+
   jobDetails = (params) => {
     console.log("job details");
     localStorage.setItem('jobType', params);
@@ -37,8 +41,11 @@ export default React.memo(class Home extends Component {
     })();
   }
 
+
   componentDidMount() {
     console.log("data initislised");
+    console.log("test"+JSON.stringify(this.state));
+    this.display();
     (
       async () => {
         console.log("executed");

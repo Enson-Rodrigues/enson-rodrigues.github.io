@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Kid from "../assests/kid.jpg"
 import axios from "axios";
  
-export default React.memo(class ProfileDetails extends Component {
+export default class ProfileDetails extends Component {
   constructor(props){
       super(props)
 
@@ -36,11 +36,13 @@ export default React.memo(class ProfileDetails extends Component {
 
   render() {
     return (
+      
       <>
         <Link to={"/"}>
             <h4>Go Back</h4>
         </Link>
-        {this.state.profileDetails ? 
+        
+        {this.state.profileDetails.length !== 0 ? 
             <div className="text-center">
                 <div className="profileCard" >
                     <img alt="dummy" src={Kid}/>
@@ -62,9 +64,9 @@ export default React.memo(class ProfileDetails extends Component {
                     </div>
                 </div>
             </div>
-        : ""}
+        : <p className="loading">loading... </p>}
         
       </>
     );
   }
-})
+}
