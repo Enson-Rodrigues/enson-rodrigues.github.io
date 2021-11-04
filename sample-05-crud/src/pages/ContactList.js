@@ -11,7 +11,7 @@ const ContactList = (props) => {
     const inputEle = useRef("");
     
     // De structuring of object 
-    const {loadingFlag, errorMsgFlag, searchTerm, setSearchTerm, searchHandler, removeContactHandler, myContacts} = useContext(CommonContext);
+    const {loadingFlag, errorMsgFlag, searchTerm, setSearchTerm, searchHandler, removeContactHandler, myContacts, example} = useContext(CommonContext);
     
     console.log(useContext(CommonContext));
 
@@ -39,6 +39,9 @@ const ContactList = (props) => {
         inputEle.current.focus();
         //props.searchKeyword("");
         searchHandler("");
+    }
+    const chnageText=()=>{
+        return example = "Enson";
     }
 
     const renderContactList = myContacts().map((contact)=>{

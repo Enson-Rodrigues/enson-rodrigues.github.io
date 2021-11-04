@@ -1,18 +1,20 @@
+import {ActionTypes} from "./actionType";
+
 export const increment = (num) => {
     return {
-        type: 'INCREMENT',
+        type: ActionTypes.INCREMENT,
         payload: num
     }
 }
 
 export const decrement = () => {
     return {
-        type: 'DECREMENT'
+        type: ActionTypes.DECREMENT
     }
 }
 
 export const user = () => {
     return {
-        type: "SIGN_IN"
+        type: ActionTypes.SIGN_IN
     }
 }

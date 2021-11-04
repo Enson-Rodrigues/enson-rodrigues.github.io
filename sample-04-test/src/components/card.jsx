@@ -11,10 +11,12 @@ export default React.memo(class Card extends Component {
     this.state = {
       cardDisplay: false
     }
+    console.log("Constructore");
   }
 
   componentDidMount () {
     console.log(this.props.jobFullDetails);
+    console.log("did mount");
   }
     
   render() {

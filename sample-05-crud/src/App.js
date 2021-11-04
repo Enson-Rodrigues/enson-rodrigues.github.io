@@ -189,7 +189,8 @@ const App = () => {
                 searchTerm, setSearchTerm, 
                 myContacts: () => { return searchTerm.length > 1 ? searchResult : contacts },
                 searchHandler,
-                removeContactHandler
+                removeContactHandler,
+                example: "test"
               }}>
                 <ContactList commponent={ContactList} />
             </CommonContext.Provider>

@@ -10,7 +10,8 @@ export default React.memo(class Home extends Component {
     jobTypeList: [],
     job: "",
     jobFullDetails: {},
-    isDataAvailable: false
+    isDataAvailable: false,
+    cardDisplay: false
   }
 
   display() {
