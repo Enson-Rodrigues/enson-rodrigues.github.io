@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ContactCard from "../components/ContactCard";
+import LoadingHOC from "../hoc/LoadingHOC"
 
 const ContactList = (props) => {
 
-    const {contacts, errorMsgFlag, loadingFlag} = props.details;
+    const {contacts} = props.details;
     
     const renderContactList = contacts.map((contact)=>{
         return (
@@ -22,16 +23,12 @@ const ContactList = (props) => {
                 </Link>
             </h2>
 
-            {loadingFlag ? 
-                (contacts.length !== 0 ? 
-                    (renderContactList) : 
-                    <h5>We are sorry no data available for now... Please do add details by clicking "Add Contact"</h5>
-                )
-                :(errorMsgFlag ? <h3>Network Error, Sorry for inconviennce</h3>:<h1>Loading.....</h1>)
-            }
-
+            {contacts.length !== 0 ? 
+                (renderContactList) : 
+                <h5>We are sorry no data available for now... Please do add details by clicking "Add Contact"</h5>}
+                
         </div>
     )
 }
 
-export default ContactList;
+export default LoadingHOC(ContactList);
