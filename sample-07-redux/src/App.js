@@ -8,10 +8,10 @@ const App = () => {
   const counter = useSelector(state=>state.Counter);
   const isLogged = useSelector(state=>state.LoggedType);
   const dispatchCustom = useDispatch();
-  
+
   return (
     <div className="App">
-      <h2>Counter : {counter}</h2>
+      <h2>Parent Counter : {counter}</h2>
       <button onClick={()=>myStore.dispatch(increment(2))}>Increament +</button>
       <br/><br/><br/>
       <button onClick={()=>dispatchCustom(decrement())}>Decreament -</button>

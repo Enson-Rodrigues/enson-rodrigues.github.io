@@ -5,7 +5,7 @@ const Test = () => {
     const value = useSelector(state=> state.Counter);
     return (
         <>
-          hello {value}
+          Child Component {value}
         </>
     )
 }
