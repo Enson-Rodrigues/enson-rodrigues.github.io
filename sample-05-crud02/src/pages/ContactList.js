@@ -2,12 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ContactCard from "../components/ContactCard";
 import LoadingHOC from "../hoc/LoadingHOC";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
-const ContactList = (props) => {
+const ContactList = () => {
 
-    //const {contacts} = props.details;
     const contacts = useSelector(state=>state.Contact.contact);
     
     const renderContactList = contacts && contacts.map((contact)=>{
