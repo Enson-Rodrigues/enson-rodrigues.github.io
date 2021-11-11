@@ -12,3 +12,9 @@ export const setContactList = (data) => {
         payload: data
     }
 }
+
+export const errorStatus = () => {
+    return {
+        type: ActionTypes.Error_Status
+    }
+}

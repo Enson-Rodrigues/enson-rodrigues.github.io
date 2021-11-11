@@ -7,40 +7,20 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
-  const [contacts, setContacts] = useState([]);
-  const [loadingFlag, setLoadingFlag] = useState(false);
-  const [errorMsgFlag, setErrorMsgFlag] = useState(false);  
+  const contacts = useSelector(state=>console.log(state));
+  const loadingFlag = useSelector(state=>state.Contact.loadingFlag);
+  const errorMsgFlag = useSelector(state=>state.Contact.errorMsgFlag);
   const customDispatch = useDispatch();
-
-  const getContacts = async () => {
-    let response = await http.get("/contacts");
-    setLoadingFlag(true);
-    return response.data;
-  }
-
-  /*useEffect(()=>{
-    const retriveContacts = async () => {
-      try {
-        let allContacts = await getContacts();
-        if(allContacts) setContacts(allContacts);
-        
-        console.log("Useeffect executed");
-      } catch (e) {
-        console.error(e.message);
-        setErrorMsgFlag(true);
-        setLoadingFlag(false);
-      }
-    }
-    retriveContacts();
-  }, [])*/
+  
   // we need to add this in diff file to dispatch action 
   useEffect(()=>{
       customDispatch(getContactList());
+      //setLoadingFlag(true);
   }, [])
 
   return (
     <>
-      <CustomRouter contacts={contacts} loadingFlag={loadingFlag} errorMsgFlag={errorMsgFlag}></CustomRouter>
+      <CustomRouter loadingFlag={loadingFlag} errorMsgFlag={errorMsgFlag}></CustomRouter>
     </>
   );
 }

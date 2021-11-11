@@ -1,6 +1,6 @@
 import { all, put, call, takeLatest } from 'redux-saga/effects';
 import { ActionTypes } from "../actions/actionTypes";
-import { setContactList } from "../actions"
+import { setContactList, errorStatus } from "../actions"
 import { getContacts } from "./request"
 
 export function* fetchContactList() {
@@ -12,6 +12,8 @@ export function* fetchContactList() {
 
   } catch (e) {
     console.error(e.message);
+    yield put(errorStatus(e.message));
+
   }
 }
 
