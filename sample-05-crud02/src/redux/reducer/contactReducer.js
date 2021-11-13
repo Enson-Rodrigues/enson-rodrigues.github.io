@@ -19,7 +19,7 @@ const contactReducer = (state = initialValue, action) => {
             }
             break;
 
-       case "Set_AddContact_List":
+       case "Update_Contact_List_State":
             if(action.payload) {
                 state = {
                     loadingFlag: true,

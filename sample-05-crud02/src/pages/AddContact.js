@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setAddContactList } from "../redux/actions"
+import { updateContactList } from "../redux/actions"
 import { Link, useNavigate } from "react-router-dom";
 import { uuid } from "uuidv4";
 
@@ -59,7 +59,7 @@ const AddContact = (props) => {
                 'imageUrl' : formValues.imageUrl
             }
             //props.addContactHandler(frmdetails);
-            addDetailsDispatch(setAddContactList(frmdetails));
+            addDetailsDispatch(updateContactList(frmdetails));
             nameInput.current.value=""; emailInput.current.value = "";
             setFormValues({name: "", email: "", imageUrl: ""});
             navigate("/");

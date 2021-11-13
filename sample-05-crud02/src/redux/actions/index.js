@@ -18,22 +18,16 @@ export const setContactList = (data) => {
     }
 }
 
-export const postAddContactList = () => {
+export const updateContactList = (data) => {
     return {
-        type: ActionTypes.Post_AddContact_List
-    }
-}
-
-export const setAddContactList = (data) => {
-    return {
-        type: ActionTypes.Set_AddContact_List,
+        type: ActionTypes.Update_Contact_List,
         payload: data
     }
 }
 
-export const updateContactList = (data) => {
+export const updateContactListState = (data) => {
     return {
-        type: ActionTypes.Update_Contact_List,
+        type: ActionTypes.Update_Contact_List_State,
         payload: data
     }
 }
