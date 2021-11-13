@@ -3,7 +3,7 @@ import UserImage from "../assests/user.png";
 import { Link } from "react-router-dom";
 
 const ContactCard = (props) => {
-    console.log(props);
+    //console.log(props);
 
     const {email, id, imageUrl, name} = props.contactDetails;
     

@@ -18,6 +18,18 @@ const contactReducer = (state = initialValue, action) => {
                 return state;
             }
             break;
+
+       case "Set_AddContact_List":
+            if(action.payload) {
+                state = {
+                    loadingFlag: true,
+                    contact: [...state.contact, action.payload],
+                    errorMsgFlag: false
+                }
+                return state;
+            }
+            break;
+
         case "Error_Status":
             state = {
                 loadingFlag: false,
@@ -25,6 +37,7 @@ const contactReducer = (state = initialValue, action) => {
                 errorMsgFlag: true
             }
             return state;
+            
         default:
             return state;
     }
