@@ -4,7 +4,6 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from '../sagas';
 
 const sagaMiddleware = createSagaMiddleware();
-
 const myStore = createStore(
     allReducers,
     compose(
@@ -13,6 +12,7 @@ const myStore = createStore(
     )
     // to enable the chrome extension view
 );
+
 sagaMiddleware.run(rootSaga);
 
 export default myStore;
