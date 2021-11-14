@@ -15,21 +15,21 @@ const CustomRouter = (props) => {
       <Header/>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" 
+          <Route path="/" 
             element={
             <ContactList details={props}/>
           }/>
-          <Route exact path="/contactlist/:id" 
+          <Route path="/contactlist/:id" 
             element={
               <PersonalDetails />
             } 
           />
-          <Route exact path="/add" 
+          <Route path="/add" 
             element={
               <AddContact/>
             } 
           />
-          <Route exact path="/edit" 
+          <Route path="/edit" 
             element={
               <EditContact/>
             } 
