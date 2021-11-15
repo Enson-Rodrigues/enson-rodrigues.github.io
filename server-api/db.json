@@ -1384,6 +1384,12 @@
       "name": "tst12345",
       "email": "tst12345@orkut.com",
       "imageUrl": "blob:http://localhost:3000/ac957a04-aa85-4e07-99ed-d523c5be6981"
+    },
+    {
+      "id": "796ff7ec-a70a-4b7b-98ae-ccdf40380a7c",
+      "name": "Wilson Rodrigues",
+      "email": "wilsonrodrigues@test.com",
+      "imageUrl": "C:\\fakepath\\problem 01.1.PNG"
     }
   ]
 }

@@ -4,8 +4,9 @@ import { updateContactList } from "../redux/actions"
 import { Link, useNavigate } from "react-router-dom";
 import { uuid } from "uuidv4";
 
-const AddContact = (props) => {
+const AddContact = () => {
     const [formValues, setFormValues] = useState({name: "", email: "", imageUrl: ""});
+    console.log(formValues);
     const [formErrors, setFormErrors] = useState({});
     const [isFormSubmit, setIsFormSubmit] = useState(false);
     const addDetailsDispatch = useDispatch();
@@ -13,11 +14,24 @@ const AddContact = (props) => {
 
     const nameInput = React.useRef();
     const emailInput = React.useRef();
+    console.log(nameInput);
 
     const handleChange = (e) => {
-        console.log("hit me");
         const {name, value} = e.target;
         setFormValues({...formValues, [name]:value});
+    }
+
+    const blurChange = (e) => {
+        //const name = Object.keys(handleValidate(e)).toString();
+        //const myValue = Object.values(handleValidate(e)).toString();
+        let name, myValue
+        for (const [key, value] of Object.entries(handleValidate(e))) {
+            name = key;
+            myValue = value;
+        }
+
+        setFormErrors({...formErrors, [name]: myValue});
+        console.log(formErrors);
     }
 
     const handleSubmit = (e) => {
@@ -33,19 +47,43 @@ const AddContact = (props) => {
         const errors = {};
         const regex = /^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;,.](([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+)*$/;
 
-        if(!param.name) 
+        /*if(!param.name) 
             errors.name = "Name field cannot be empty";
         
         if(!param.email) {
             errors.email = "Email field cannot be empty";
         } else if(!param.email.match(regex)) {
             errors.email = "Please add correct email address";
-        }
+        }*/
+
+        const { name, value } = param.target || param;
+
+        switch (name) {
+            case 'name': 
+              if(value == "" ) {
+                errors.name = "firstName field cannot be blank";
+              } else {
+                errors.name = "";
+              }
+              break;
+      
+            case 'email': 
+              if(value == "" ) {
+                errors.email = "email field cannot be blank";
+              } else if(!value.match(regex)) {
+                errors.email = "Please enter correct email address !";
+              } else {
+                errors.email = "";
+              }
+            break;
+
+            default:
+              break;
+          }
             
         
-        if(!param.imageUrl) 
-            errors.imageUrl = "Please select an image";
-        
+        /*if(!param.imageUrl) 
+            errors.imageUrl = "Please select an image";*/
         return errors;
     }
 
@@ -58,7 +96,6 @@ const AddContact = (props) => {
                 'email' : formValues.email,
                 'imageUrl' : formValues.imageUrl
             }
-            //props.addContactHandler(frmdetails);
             addDetailsDispatch(updateContactList(frmdetails));
             nameInput.current.value=""; emailInput.current.value = "";
             setFormValues({name: "", email: "", imageUrl: ""});
@@ -71,6 +108,7 @@ const AddContact = (props) => {
         <div className="ui main">
             <h2>Add Contact</h2>
             <pre>{JSON.stringify(formValues)}</pre>
+            <pre>{JSON.stringify(formErrors)}</pre>
             <form className="ui form" onSubmit={handleSubmit}>
                 <div className="field">
                     <label>Name</label>
@@ -79,7 +117,7 @@ const AddContact = (props) => {
                         placeholder="Name"
                         value={formValues.name}
                         //onChange={e => setName(e.target.value)}
-                        onBlur={handleChange}
+                        onBlur={blurChange}
                         onChange={handleChange}
                         ref={nameInput}
                     />
@@ -92,7 +130,7 @@ const AddContact = (props) => {
                         value={formValues.email}
                         placeholder="E-mail"
                         //onChange={e => setEmail(e.target.value)}
-                        onBlur={handleChange}
+                        onBlur={blurChange}
                         onChange={handleChange}
                         ref={emailInput}
                     />
