@@ -32,6 +32,20 @@ export const updateContactListState = (data) => {
     }
 }
 
+export const deleteContactItemAPI = (data) => {
+    return {
+        type: ActionTypes.Delete_Contact_Item_API,
+        payload: data
+    }
+}
+
+export const deleteContactItemState = (data) => {
+    return {
+        type: ActionTypes.Delete_Contact_Item_State,
+        payload: data
+    }
+}
+
 export const errorStatus = () => {
     return {
         type: ActionTypes.Error_Status

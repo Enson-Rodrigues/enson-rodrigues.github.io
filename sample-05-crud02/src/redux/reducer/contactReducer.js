@@ -30,6 +30,20 @@ const contactReducer = (state = initialValue, action) => {
             }
             break;
 
+        case "Delete_Contact_Item_State":
+            if(action.payload) {
+                let filterContacts = state.contact.filter((ele)=>{
+                    return ele.id != action.payload;
+                  })
+                state = {
+                    loadingFlag: true,
+                    contact: filterContacts,
+                    errorMsgFlag: false
+                }
+                return state;
+            }
+            break;
+
         case "Error_Status":
             state = {
                 loadingFlag: false,

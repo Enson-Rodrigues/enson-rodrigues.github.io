@@ -3,19 +3,21 @@ import axios from "axios";
 import deviceImage from "../assests/deviceImg.png"
 import CustomDropdown from "../components/dropdown";
 import Card from "../components/card";
+import CComponent from "../example/CComponent";
 
 export default React.memo(class Home extends Component {
+  constructor(props){
+    super(props);
+    console.log("Parent Contructor");
+  }
 
   state = {
     jobTypeList: [],
     job: "",
     jobFullDetails: {},
     isDataAvailable: false,
-    cardDisplay: false
-  }
-
-  display() {
-    console.log(this.state);
+    cardDisplay: false,
+    normalFlag: false
   }
 
   jobDetails = (params) => {
@@ -44,9 +46,8 @@ export default React.memo(class Home extends Component {
 
 
   componentDidMount() {
-    console.log("data initislised");
+    console.log("Parent ComponentDidMMount");
     console.log("test"+JSON.stringify(this.state));
-    this.display();
     (
       async () => {
         console.log("executed");
@@ -106,6 +107,14 @@ export default React.memo(class Home extends Component {
           jobTitle = {this.state.job}
         /> : ""
         }
+
+<br/>
+            <br/>
+            <br/>
+            <hr/>
+            <button  className="ui button blue" onClick={()=>this.setState({normalFlag: !this.state.normalFlag})}>Toggle Class Component</button>
+            {this.state.normalFlag ? <CComponent/>: ""}
+            <hr/>
         
         <div className="deviceImage">
           <img alt="deviceImage" src={deviceImage} width="642" height="240"/>

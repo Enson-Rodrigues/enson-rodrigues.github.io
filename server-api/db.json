@@ -1323,11 +1323,6 @@
   ],
   "contacts": [
     {
-      "id": "ef43244c-3bb1-4faf-9e50-c0fb6fe984ee",
-      "name": "Test12345 Rodrigues",
-      "email": "test1@tes.com"
-    },
-    {
       "id": "500190df-3ce8-4326-a2f4-7c492539f351",
       "name": "test2 Test",
       "email": "test2@tets.com"
@@ -1362,34 +1357,34 @@
       "imageUrl": "blob:http://localhost:3000/d61d8e25-9070-4748-9d7a-095d7eb2260d"
     },
     {
-      "id": "627c9fce-e6c3-47a1-898a-9764a0cb1d20",
-      "name": "test09",
-      "email": "test09@orkut.com",
-      "imageUrl": "blob:http://localhost:3000/f4bab084-2ff3-45a3-8273-ae11b5f44143"
-    },
-    {
       "id": "7045b57b-4eda-4413-9c1e-f8c117fd9496",
       "name": "nick",
       "email": "nick@tets.com",
       "imageUrl": "blob:http://localhost:3000/4691613b-820b-43ef-912a-02bbe894d918"
     },
     {
-      "id": "6af6c181-09a6-44aa-be70-255e2a05ee8b",
-      "name": "Rick",
-      "email": "rick@tetx.com",
-      "imageUrl": "blob:http://localhost:3000/1b068e73-7aa2-49d4-bc64-cefe7b463f09"
-    },
-    {
-      "id": "df692edd-32c4-4051-8268-61dd021b3d4d",
-      "name": "tst12345",
-      "email": "tst12345@orkut.com",
-      "imageUrl": "blob:http://localhost:3000/ac957a04-aa85-4e07-99ed-d523c5be6981"
-    },
-    {
       "id": "796ff7ec-a70a-4b7b-98ae-ccdf40380a7c",
       "name": "Wilson Rodrigues",
       "email": "wilsonrodrigues@test.com",
       "imageUrl": "C:\\fakepath\\problem 01.1.PNG"
+    },
+    {
+      "id": "64cf033c-a01a-478c-952d-bfd1babdf755",
+      "name": "Jeslyn Rodrigues",
+      "email": "jeslyn@test.com",
+      "imageUrl": ""
+    },
+    {
+      "id": "cf8fd828-82af-40f0-a6f0-00fb9e6d5dc8",
+      "name": "Joylin Rodrigues",
+      "email": "joylin@test.com",
+      "imageUrl": ""
+    },
+    {
+      "id": "b8536bff-adf0-4b33-a16f-f90c89487355",
+      "name": "Joker Madam",
+      "email": "joker@test.com",
+      "imageUrl": ""
     }
   ]
 }

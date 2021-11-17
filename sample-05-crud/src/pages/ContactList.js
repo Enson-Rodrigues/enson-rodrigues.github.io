@@ -90,7 +90,7 @@ const ContactList = (props) => {
             <br/>
             <hr/>
             <button  className="ui button blue" onClick={()=>setNormalFlag(!normalFlag)}>Toggle Class Component</button>
-            {normalFlag ? <FComponent/>: ""}
+            {normalFlag ? <CComponent/>: ""}
             <hr/>
         </div>
     )
