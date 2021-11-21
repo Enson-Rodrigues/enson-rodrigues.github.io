@@ -6,7 +6,8 @@ class Forwarding extends Component {
     super();
     this.state = {
       firstName: "",
-      normalFlag: false
+      normalFlag: false,
+      inputText: ""
     }
     console.log("Forward Parent Constructor");
   }
@@ -37,20 +38,33 @@ class Forwarding extends Component {
     console.log("Forward Parent componentWillUnmount");
   }
 
+  onHandler(event) {
+    event.preventDefault();
+    console.log("i got chnaged");
+    console.log(event.target.value);
+    this.setState({inputText: event.target.value});
+  }
+
   render() {
     console.log("Forward Parent render");
+    //<button  className="ui button blue" onClick={()=>this.setState({normalFlag: !this.state.normalFlag})}>Toggle Class Component</button>
+    //{this.state.normalFlag ? <CComponent/>: <CComponent/>}
     return (
       <>
       {this.state.firstName}
         <div className="text-center">
             <h1>Forwarding page</h1>
         </div>
+        <input 
+          type="text" 
+          placeholder="some type" 
+          onChange={this.onHandler.bind(this)}/>
+          {this.state.inputText}
         <br/>
             <br/>
             <br/>
             <hr/>
-            <button  className="ui button blue" onClick={()=>this.setState({normalFlag: !this.state.normalFlag})}>Toggle Class Component</button>
-            {this.state.normalFlag ? <CComponent/>: ""}
+            
             <hr/>
       </>
     );

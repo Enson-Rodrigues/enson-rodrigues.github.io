@@ -2,13 +2,24 @@ import { Link } from "react-router-dom";
 import ContactCard from "../components/ContactCard";
 import LoadingHOC from "../hoc/LoadingHOC";
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from "react";
+import { useState, Profiler } from "react";
 
 
 const ContactList = () => {
 
     const contacts = useSelector(state=>state.contactArrayList.contact);
     const [searchTerm, setSearchTerm] = useState("");
+
+    const callBackFunct = (id, phase, actualDuration, baseDuration, startTime, commitTimme, interaction) => {
+        console.log("id : "+id);
+        console.log("phase : "+phase);
+        console.log("actualDuration : "+actualDuration);
+        console.log("baseDuration : "+baseDuration);
+        console.log("startTime : "+startTime);
+        console.log("commitTimme : "+commitTimme);
+        console.log("interaction : "+JSON.stringify(interaction));
+    }
+
     const renderContactList = contacts && contacts.filter((target)=>{
             return Object.values(target).slice(1,3)
                 .join(" ").toLowerCase()
@@ -41,10 +52,11 @@ const ContactList = () => {
                 </div>
                 <button className="ui button blue right abc" onClick={(e)=> setSearchTerm("")}>Reset</button>
             </div>
-
-            {contacts.length !== 0 ? 
-                (renderContactList) : 
-                <h5>We are sorry no data available for now... Please do add details by clicking "Add Contact"</h5>}
+            <Profiler id="contact-list" onRender={callBackFunct}>
+                {contacts.length !== 0 ? 
+                    (renderContactList) : 
+                    <h5>We are sorry no data available for now... Please do add details by clicking "Add Contact"</h5>}
+            </Profiler>
                 
         </div>
     )

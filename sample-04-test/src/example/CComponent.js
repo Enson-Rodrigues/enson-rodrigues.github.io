@@ -12,7 +12,7 @@ class CComponent extends Component {
 
     componentDidMount() {
         console.log("Child componentDidMount");
-        setInterval(this.showDate, 1000);
+        setTimeout(this.showDate, 1000);
     }
 
     shouldComponentUpdate(nextProps, nextState) {

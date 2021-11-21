@@ -1357,12 +1357,6 @@
       "imageUrl": "blob:http://localhost:3000/d61d8e25-9070-4748-9d7a-095d7eb2260d"
     },
     {
-      "id": "7045b57b-4eda-4413-9c1e-f8c117fd9496",
-      "name": "nick",
-      "email": "nick@tets.com",
-      "imageUrl": "blob:http://localhost:3000/4691613b-820b-43ef-912a-02bbe894d918"
-    },
-    {
       "id": "796ff7ec-a70a-4b7b-98ae-ccdf40380a7c",
       "name": "Wilson Rodrigues",
       "email": "wilsonrodrigues@test.com",
@@ -1385,6 +1379,12 @@
       "name": "Joker Madam",
       "email": "joker@test.com",
       "imageUrl": ""
+    },
+    {
+      "id": "efb9a06b-f3af-4a61-b881-a0f132ee5656",
+      "name": "Wilson Test",
+      "email": "wilson@datamatics.com",
+      "imageUrl": "C:\\fakepath\\Nov Net Paid.PNG"
     }
   ]
 }
