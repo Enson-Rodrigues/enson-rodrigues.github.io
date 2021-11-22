@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import UserImage from "../assests/user.png";
+import Modal from "./Modal";
 import { Link } from "react-router-dom";
-import { deleteContactItemAPI } from "../redux/actions"
-import { useSelector, useDispatch } from 'react-redux';
+
 
 const ContactCard = (props) => {
     //console.log(props);
+    const [ isOpen, setIsOpen ] = useState(false);
+    const [ clickData, setClickData ] = useState({});
+    const { email, id, imageUrl, name} = props.contactDetails;
 
-    const {email, id, imageUrl, name} = props.contactDetails;
-    const deleteContactIdDispatch = useDispatch();
-
-    const deleteContactHandler = (id) => {
-        deleteContactIdDispatch(deleteContactItemAPI(id));
+    const openModal = (data) => {
+        console.log("modal open");
+        setIsOpen(!isOpen);
+        setClickData(data);
     }
     
     return (
@@ -26,13 +28,14 @@ const ContactCard = (props) => {
                 </div>
             </Link>    
             <div className="right floated content" style={{marginTop: "1%", color: "red"}}>
-                <i className="trash alternate outline icon" onClick={()=> deleteContactHandler(id)}></i>
+                <i className="trash alternate outline icon" onClick={()=> openModal(props.contactDetails)}></i>
             </div>     
             <div className="right floated content" style={{marginTop: "1%", color: "blue"}}>
                 <Link to={{pathname:"/edit", state:{contact: props.contactDetails}}}>
                     <i className="edit alternate outline icon" ></i>
                 </Link>
-            </div>                                        
+            </div>
+            <Modal isOpen={isOpen} setIsOpen={setIsOpen} data={clickData}></Modal>                                     
         </div>
     )
 }

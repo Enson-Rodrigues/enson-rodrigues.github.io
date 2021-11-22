@@ -11,13 +11,13 @@ const ContactList = () => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const callBackFunct = (id, phase, actualDuration, baseDuration, startTime, commitTimme, interaction) => {
-        console.log("id : "+id);
+       /* console.log("id : "+id);
         console.log("phase : "+phase);
         console.log("actualDuration : "+actualDuration);
         console.log("baseDuration : "+baseDuration);
         console.log("startTime : "+startTime);
         console.log("commitTimme : "+commitTimme);
-        console.log("interaction : "+JSON.stringify(interaction));
+        console.log("interaction : "+JSON.stringify(interaction));*/
     }
 
     const renderContactList = contacts && contacts.filter((target)=>{
@@ -26,6 +26,7 @@ const ContactList = () => {
                 .includes(searchTerm.toLowerCase());;
         })
         .map((contact)=>{
+            console.log("Contact list listing");
         return (
             <>
                 <ContactCard key={contact.id.toString()} contactDetails={contact}/>

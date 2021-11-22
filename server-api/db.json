@@ -1351,12 +1351,6 @@
       "imageUrl": "C:\\fakepath\\Nov Net Paid.PNG"
     },
     {
-      "id": "1d90838b-9b61-44f4-911a-0532749accd5",
-      "name": "enson",
-      "email": "enson@orkut.com",
-      "imageUrl": "blob:http://localhost:3000/d61d8e25-9070-4748-9d7a-095d7eb2260d"
-    },
-    {
       "id": "796ff7ec-a70a-4b7b-98ae-ccdf40380a7c",
       "name": "Wilson Rodrigues",
       "email": "wilsonrodrigues@test.com",
@@ -1381,10 +1375,16 @@
       "imageUrl": ""
     },
     {
-      "id": "efb9a06b-f3af-4a61-b881-a0f132ee5656",
-      "name": "Wilson Test",
-      "email": "wilson@datamatics.com",
-      "imageUrl": "C:\\fakepath\\Nov Net Paid.PNG"
+      "id": "2a67e5b6-9ab9-4591-8137-938ccb3b2dfa",
+      "name": "Lynet Rodrigues",
+      "email": "lynet@test.com",
+      "imageUrl": "C:\\fakepath\\example01.jpg"
+    },
+    {
+      "id": "d077bc41-c26c-4b11-a3a1-7fd3ec5e2b46",
+      "name": "Juvan Rodrigues",
+      "email": "juvan@test.com",
+      "imageUrl": "C:\\fakepath\\example01.jpg"
     }
   ]
 }

@@ -1,17 +1,23 @@
 import React from 'react';
 import useForms from '../forms';
 import validate from '../forms/validateInfo'
+import { Link, useNavigate } from "react-router-dom";
 
 
 const FormComponent = () => {
     const {values, errors, handleChange, handleBlur, handleSubmit } = useForms(validate);
+    const navigate = useNavigate();
+
+    const back = () => {
+        navigate("/");
+    }
     
     return (
         <div className="ui main">
             <h2>Add Contact</h2>
             <pre>{JSON.stringify(values)}</pre>
             <pre>{JSON.stringify(errors)}</pre>
-            <form className="ui form" onSubmit={handleSubmit}>
+            <form className="ui form">
                 <div className="field">
                     <label htmlFor="name">Name</label>
                     <input type="text" 
@@ -46,7 +52,9 @@ const FormComponent = () => {
                     />
                     <p className="error">{errors.imageUrl}</p>
                 </div>
-                <button className="ui button blue">Add</button>
+                <button onClick={back} className="ui button blue">Back</button>
+                <button onClick={handleSubmit} className="ui button blue">Add</button>
+                
             </form>
         </div>
     )
