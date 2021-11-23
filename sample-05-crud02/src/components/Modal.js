@@ -1,25 +1,27 @@
 import React from "react";
 import ReactDOM  from "react-dom";
-import { deleteContactItemAPI } from "../redux/actions"
-import { useSelector, useDispatch } from 'react-redux';
+import { AreYouSure } from "./modals/AreYouSure";
+import { ThankYou } from "./modals/ThankYou";
 
-const Modal = ({isOpen, setIsOpen, data, children}) => {  
-    const {id, name, email} = data;
-    const deleteContactIdDispatch = useDispatch();
-
-    const deleteContactHandler = (id) => {
-        deleteContactIdDispatch(deleteContactItemAPI(id));
-    }
+const Modal = ({isOpen, setIsOpen, modalType, data, children}) => {
 
     return ReactDOM.createPortal(
         <>
             {isOpen ? 
                 <div className="modal">
                     <div className="modal-content">
-                    <h3>Are you sure to delete below info ?</h3>
-                    <p>{name} & {email}</p>
-                    <button onClick={()=> deleteContactHandler(id)} className="ui button blue left">Yes</button>
-                    <button onClick={()=> setIsOpen(!isOpen)} className="ui button blue left">No</button>
+                        
+                        {modalType === "deleteCard" ? 
+                            <AreYouSure modalData={data}></AreYouSure> 
+                            : null
+                        }
+
+                        {modalType === "dataEntryDone" ? 
+                            <ThankYou modalData={data}></ThankYou>
+                            : null
+                        }
+                        
+                        <button onClick={()=> setIsOpen(!isOpen)} className="ui button blue left">No</button>
                     </div>
               </div>
             :""}

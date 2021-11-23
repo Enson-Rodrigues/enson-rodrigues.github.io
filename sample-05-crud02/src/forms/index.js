@@ -6,6 +6,8 @@ import { uuid } from "uuidv4";
 import { inputName, inputEmail } from "../forms/validateInfo"
 
 const useForms = (validate) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [frmdetails, setFrmdetails] = useState({});
     const addDetailsDispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -53,6 +55,9 @@ const useForms = (validate) => {
         );
         setIsSubmitting(true);
     }
+    // addDetailsDispatch(updateContactList(frmdetails));
+    //setValues({name: "", email: "", imageUrl: ""});
+       //     navigate("/");
 
     useEffect(()=>{
         if(Object.keys(errors).length === 0 && isSubmitting) {
@@ -64,17 +69,16 @@ const useForms = (validate) => {
                 'imageUrl' : values.imageUrl
             }
             console.log(frmdetails);
-            addDetailsDispatch(updateContactList(frmdetails));
-            //nameInput.current.value=""; emailInput.current.value = "";
-            setValues({name: "", email: "", imageUrl: ""});
-            navigate("/");
+            setFrmdetails(frmdetails);
+            setIsOpen(true);
+            
         } else {
             console.log("Form not submitted");
         }
     }, [errors])
 
     return {
-        values, errors, handleChange, handleBlur, handleSubmit
+        isOpen, setIsOpen, values, errors, frmdetails, handleChange, handleBlur, handleSubmit
     }
 }
 

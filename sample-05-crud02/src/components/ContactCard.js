@@ -35,7 +35,7 @@ const ContactCard = (props) => {
                     <i className="edit alternate outline icon" ></i>
                 </Link>
             </div>
-            <Modal isOpen={isOpen} setIsOpen={setIsOpen} data={clickData}></Modal>                                     
+            <Modal isOpen={isOpen} modalType="deleteCard" setIsOpen={setIsOpen} data={clickData}></Modal>                                     
         </div>
     )
 }

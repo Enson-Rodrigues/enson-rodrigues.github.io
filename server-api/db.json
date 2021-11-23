@@ -1323,11 +1323,6 @@
   ],
   "contacts": [
     {
-      "id": "500190df-3ce8-4326-a2f4-7c492539f351",
-      "name": "test2 Test",
-      "email": "test2@tets.com"
-    },
-    {
       "id": "15aaaeae-f4b1-41eb-aba3-a876193bfe63",
       "name": "test3234",
       "email": "test31234@test.com"
@@ -1343,12 +1338,6 @@
       "name": "Helen Rodrigues",
       "email": "helenrodrigues@datamatics.com",
       "imageUrl": "blob:http://localhost:3000/cf3da5c0-bb76-4707-bb34-ed8ae868e55c"
-    },
-    {
-      "id": "7b7173de-0415-40ca-8447-ca83b6dc9a46",
-      "name": "Wilson Rodrigues",
-      "email": "wilson@test.com",
-      "imageUrl": "C:\\fakepath\\Nov Net Paid.PNG"
     },
     {
       "id": "796ff7ec-a70a-4b7b-98ae-ccdf40380a7c",
@@ -1381,10 +1370,10 @@
       "imageUrl": "C:\\fakepath\\example01.jpg"
     },
     {
-      "id": "d077bc41-c26c-4b11-a3a1-7fd3ec5e2b46",
-      "name": "Juvan Rodrigues",
-      "email": "juvan@test.com",
-      "imageUrl": "C:\\fakepath\\example01.jpg"
+      "id": "f92e7ff5-d0c0-42a0-a43b-d99f528c48a4",
+      "name": "Bhumi T",
+      "email": "bhumi@test.com",
+      "imageUrl": "C:\\fakepath\\exampl02.jpg"
     }
   ]
 }
