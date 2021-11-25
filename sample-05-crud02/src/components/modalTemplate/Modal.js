@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM  from "react-dom";
-import { AreYouSure } from "./modals/AreYouSure";
-import { ThankYou } from "./modals/ThankYou";
+import { AreYouSure, ThankYou } from "./ModalTypes";
 
 const Modal = ({isOpen, setIsOpen, modalType, data, children}) => {
 

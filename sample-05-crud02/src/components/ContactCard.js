@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import UserImage from "../assests/user.png";
-import Modal from "./Modal";
+import Modal from "./modalTemplate/Modal";
 import { Link } from "react-router-dom";
 
 

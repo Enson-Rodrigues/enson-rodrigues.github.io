@@ -1334,12 +1334,6 @@
       "imageUrl": null
     },
     {
-      "id": "c8ed1650-f01d-400a-a20c-0c560b17af2b",
-      "name": "Helen Rodrigues",
-      "email": "helenrodrigues@datamatics.com",
-      "imageUrl": "blob:http://localhost:3000/cf3da5c0-bb76-4707-bb34-ed8ae868e55c"
-    },
-    {
       "id": "796ff7ec-a70a-4b7b-98ae-ccdf40380a7c",
       "name": "Wilson Rodrigues",
       "email": "wilsonrodrigues@test.com",
@@ -1374,6 +1368,18 @@
       "name": "Bhumi T",
       "email": "bhumi@test.com",
       "imageUrl": "C:\\fakepath\\exampl02.jpg"
+    },
+    {
+      "id": "56452c0b-06f7-4c73-84c7-fb5292ac8870",
+      "name": "Helen Rodrigues",
+      "email": "helen@test.com",
+      "imageUrl": "C:\\fakepath\\exampl02.jpg"
+    },
+    {
+      "id": "903d1758-6b2c-4780-9d65-70e475590cea",
+      "name": "Suraj D",
+      "email": "suraj@test.com",
+      "imageUrl": "C:\\fakepath\\example01.jpg"
     }
   ]
 }

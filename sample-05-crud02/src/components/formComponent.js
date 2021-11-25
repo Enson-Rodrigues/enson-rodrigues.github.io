@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import useForms from '../forms';
 import validate from '../forms/validateInfo'
 import { Link, useNavigate } from "react-router-dom";
-import Modal from './Modal';
+import Modal from './modalTemplate/Modal';
 
 
 const FormComponent = () => {
     const { isOpen, setIsOpen, values, errors, frmdetails, handleChange, handleBlur, handleSubmit } = useForms(validate);
-    
     const navigate = useNavigate();
 
     const back = () => {
