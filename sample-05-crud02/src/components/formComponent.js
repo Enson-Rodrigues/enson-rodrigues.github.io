@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useForms from '../forms';
 import validate from '../forms/validateInfo'
+import { InputField } from '../form-components';
 import { Link, useNavigate } from "react-router-dom";
 import Modal from './modalTemplate/Modal';
 
@@ -12,7 +13,7 @@ const FormComponent = () => {
     const back = () => {
         navigate("/");
     }
-
+    
     return (
         <div className="ui main">
             <h2>Add Contact</h2>
@@ -20,38 +21,41 @@ const FormComponent = () => {
             <pre>{JSON.stringify(errors, null, 2)}</pre>
             <form className="ui form">
                 <div className="field">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" 
-                        id="name"
-                        name="name" 
-                        placeholder="Name"
+                    <InputField 
+                        id= "name"
+                        type="text"
                         value={values.name}
+                        placeholder="Name"
+                        label="Name"
+                        name="name"
                         onChange={handleChange}
                         onBlur={handleBlur}
+                        errors={errors.name}
                     />
-                    <p className="error">{errors.name}</p>
                 </div>
                 <div className="field">
-                    <label htmlFor="email">Email</label>
-                    <input type="text" 
-                        id="email"
-                        name="email" 
+                    <InputField 
+                        id= "email"
+                        type="text"
                         value={values.email}
-                        placeholder="E-mail"
+                        placeholder="Email"
+                        label="Email"
+                        name="email"
                         onChange={handleChange}
                         onBlur={handleBlur}
+                        errors={errors.email}
                     />
-                    <p className="error">{errors.email}</p>
                 </div>
                 <div className="field">
-                    <label>Image</label>
-                    <input type="file" 
-                        name="imageUrl" 
-                        //onChange={onImageChange}
+                    <InputField 
+                        id= "imageUrl"
+                        type="file"
+                        placeholder="image"
+                        label="Please select an image"
+                        name="imageUrl"
                         onChange={addImageBase64}
-                        //value={values.imageUrl}
+                        errors={errors.imageUrl}
                     />
-                    <p className="error">{errors.imageUrl}</p>
                 </div>
                 <button onClick={back} className="ui button blue">Back</button>
                 <button onClick={handleSubmit} className="ui button blue">Add</button>
