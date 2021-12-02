@@ -51,7 +51,8 @@ const ContactList = () => {
                     type="text" 
                     placeholder="Search Contacts" className="prompt" 
                     value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}/>
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    />
                     <i className="search icon"></i>
                 </div>
                 <button className="ui button blue right abc" onClick={(e)=> setSearchTerm("")}>Reset</button>

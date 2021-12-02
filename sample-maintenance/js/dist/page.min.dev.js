@@ -345,6 +345,10 @@ var stringLast = stringLast.split(" ").map(function (target) {
   var letter = target.charAt(target.length - 1).toUpperCase();
   return target.split("").reverse().join("").replace(target.charAt(target.length - 1), letter).split("").reverse().join("");
 }); //console.log(stringLast.join(" "));
+
+/*stringLast.toLowerCase().split(" ").map((target)=>{
+return target.replace(target[target.length-1], target[target.length-1].toUpperCase());
+})*/
 // Object covert into array of keys or values 
 
 var simpleObj = {

@@ -55,6 +55,8 @@ const useForms = (validate) => {
         );
         setIsSubmitting(true);
     }
+    
+
     // addDetailsDispatch(updateContactList(frmdetails));
     //setValues({name: "", email: "", imageUrl: ""});
        //     navigate("/");
