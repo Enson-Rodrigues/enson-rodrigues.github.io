@@ -56,10 +56,20 @@ const useForms = (validate) => {
         setIsSubmitting(true);
     }
     
-
-    // addDetailsDispatch(updateContactList(frmdetails));
-    //setValues({name: "", email: "", imageUrl: ""});
-       //     navigate("/");
+    const addImageBase64 = e => {
+        const {name, value} = e.target;
+        if (e.target.files && e.target.files[0]) {
+            var fileReader = new FileReader();
+            fileReader.readAsDataURL(e.target.files[0]);
+            fileReader.onload = function(fileLoadedEvent) {
+                let srcData = fileLoadedEvent.target.result;
+                setValues({
+                    ...values,
+                    [name] : srcData
+                })
+            }
+        }
+    };
 
     useEffect(()=>{
         if(Object.keys(errors).length === 0 && isSubmitting) {
@@ -80,7 +90,7 @@ const useForms = (validate) => {
     }, [errors])
 
     return {
-        isOpen, setIsOpen, values, errors, frmdetails, handleChange, handleBlur, handleSubmit
+        isOpen, setIsOpen, values, errors, frmdetails, handleChange, handleBlur, handleSubmit, addImageBase64
     }
 }
 

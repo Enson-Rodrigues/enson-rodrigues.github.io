@@ -17,7 +17,7 @@ const ContactCard = (props) => {
     }
     
     return (
-        <div className="item">             
+        <div className="item" key={id}>             
             <Link to={{pathname:`/contactlist/${id}`, state:{contact: props.contactDetails}}}>
                 <img className="left floated ui avatar image" src={imageUrl ? imageUrl :UserImage} alt="user"/>
                 <div className="left floated content">

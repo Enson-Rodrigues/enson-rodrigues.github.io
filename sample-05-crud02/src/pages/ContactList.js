@@ -30,7 +30,7 @@ const ContactList = () => {
         return (
             <>
                 <Profiler id="per-contact-list" onRender={callBackFunct}>
-                    <ContactCard key={contact.id.toString()} contactDetails={contact}/>
+                    <ContactCard key={contact.id} contactDetails={contact}/>
                 </Profiler>
                 
             </>

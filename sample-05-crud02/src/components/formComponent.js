@@ -6,18 +6,18 @@ import Modal from './modalTemplate/Modal';
 
 
 const FormComponent = () => {
-    const { isOpen, setIsOpen, values, errors, frmdetails, handleChange, handleBlur, handleSubmit } = useForms(validate);
+    const { isOpen, setIsOpen, values, errors, frmdetails, handleChange, handleBlur, handleSubmit, addImageBase64 } = useForms(validate);
     const navigate = useNavigate();
 
     const back = () => {
         navigate("/");
     }
-    
+
     return (
         <div className="ui main">
             <h2>Add Contact</h2>
-            <pre>{JSON.stringify(values)}</pre>
-            <pre>{JSON.stringify(errors)}</pre>
+            <pre>{JSON.stringify(values, null, 2)}</pre>
+            <pre>{JSON.stringify(errors, null, 2)}</pre>
             <form className="ui form">
                 <div className="field">
                     <label htmlFor="name">Name</label>
@@ -48,8 +48,8 @@ const FormComponent = () => {
                     <input type="file" 
                         name="imageUrl" 
                         //onChange={onImageChange}
-                        onChange={handleChange}
-                        value={values.imageUrl}
+                        onChange={addImageBase64}
+                        //value={values.imageUrl}
                     />
                     <p className="error">{errors.imageUrl}</p>
                 </div>
