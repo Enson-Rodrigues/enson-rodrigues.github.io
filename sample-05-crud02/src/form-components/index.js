@@ -16,3 +16,7 @@ export const InputField = ({ id, value, label, name, placeholder, type, onChange
     {errors && <p className="error">{errors}</p>}
   </div>
 );
+
+export const Button = ({onClick, text, color}) => (
+    <button onClick={onClick} className={`ui button ${color ? color : "blue"}`}>{text}</button>
+);

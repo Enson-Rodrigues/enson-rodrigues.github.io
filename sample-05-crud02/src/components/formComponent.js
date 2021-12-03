@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useForms from '../forms';
 import validate from '../forms/validateInfo'
-import { InputField } from '../form-components';
+import { InputField, Button } from '../form-components';
 import { Link, useNavigate } from "react-router-dom";
 import Modal from './modalTemplate/Modal';
 
@@ -57,8 +57,8 @@ const FormComponent = () => {
                         errors={errors.imageUrl}
                     />
                 </div>
-                <button onClick={back} className="ui button blue">Back</button>
-                <button onClick={handleSubmit} className="ui button blue">Add</button>
+                <Button onClick={back} text="Back" color="black"/>
+                <Button onClick={handleSubmit} text="Add" />
 
                 <Modal isOpen={isOpen} modalType="dataEntryDone" data={frmdetails} setIsOpen={setIsOpen}></Modal>
             </form>
