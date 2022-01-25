@@ -61,7 +61,7 @@
             }
 
             // Trigger a click event on each marker when the corresponding marker link is clicked
-            $('.marker-link').on('click', function () {
+            $('.marker-link').on('mouseover', function () {
 
                 google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
             });
