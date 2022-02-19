@@ -24,7 +24,17 @@
                 <div class="form-group">
                     <label for="userEmail">Email Address:</label>
                     <div class="">
-                        <input type="email" name="email" id="userEmail" placeholder="Your email address" class="input-email" autocomplete="off" onblur="validateEmail(this);">
+                        <input type="email" 
+                        name="email" 
+                        id="userEmail" 
+                        placeholder="Your email address" 
+                        class="inputfield input-email required pattern" 
+                        autocomplete="off" 
+                        onblur="validateEmail(this);"
+                        data-val-validate-regex="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"
+                        data-val-validate="Please enter a valid email address"
+                        data-val-required="Email address cannot be empty"
+                        >
                         <p id="emailError" class="errorMsg"></p>
                     </div>
                 </div>
@@ -35,13 +45,13 @@
                     <p id="radioErroMsg" class="errorMsg"></p>
                     <div class="radio-group">
                         <label class="radio-wrapper">
-                            <input type="radio" name="optradio" onchange="radioValid()" value="yes">
+                            <input class="inputfield" type="radio" name="optradio" onchange="radioValid()" value="yes">
                             <span class="checkmark yes">
                                     <span class="dot"></span>
                             </span>
                         </label>
                         <label class="radio-wrapper">
-                            <input type="radio" name="optradio" onchange="radioValid()" value="no">
+                            <input class="inputfield" type="radio" name="optradio" onchange="radioValid()" value="no">
                             <span class="checkmark no">
                                     <span class="dot"></span>
                             </span>
@@ -58,8 +68,35 @@
         </div>
 
     </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/indexOne.js"></script>
+    <script>
+        $(function(){
+
+            $(".btn-submit").click(function(e){
+                e.preventDefault();
+
+                console.log("u clicked me");
+                let form = $(this).parents("#mainForm");
+                console.log(form);
+
+                triggerValidation(form);
+            })
+
+            function triggerValidation(tar) {
+                $(tar).find(".inputfield").each(function(){
+                    getValidateMsg(this);
+                })
+            }
+
+            function getValidateMsg (tar) {
+                var regex = $(tar).data("val-validate-regex");
+                var regexErrorMsg = $(tar).data("val-validate");
+                var errorMsg = $(tar).data("val-required");
+
+            }
+        });
+    </script>
 </body>
 
 </html>

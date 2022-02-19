@@ -35,6 +35,8 @@
 
             var infowindow = new google.maps.InfoWindow();
 
+            let myflag = true;
+
             for (var i = 0; i < locations.length; i++) {
 
                 // Append a link to the markers DIV for each marker
@@ -50,8 +52,13 @@
                 google.maps.event.addListener(marker, 'click', (function (marker, i) {
 
                     return function () {
+                        if(myflag) {
+                            console.log("Scroll happing");
+                        }
+                        
                         infowindow.setContent(locations[i][2]);
                         infowindow.open(map, marker);
+                        myflag = true;
                     }
 
                 })(marker, i));
@@ -62,13 +69,13 @@
 
             // Trigger a click event on each marker when the corresponding marker link is clicked
             $('.marker-link').on('mouseover', function () {
-
+                myflag = false;
                 google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
             });
-            }
+        }
 
             initialize();
- 	</script>
+ 	</script>   
 	<script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-eICZSdls1dNgpDqhbtqfWrZfa-kOrpw&callback=initialize">
 			    </script>	
