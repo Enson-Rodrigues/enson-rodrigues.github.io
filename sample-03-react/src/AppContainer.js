@@ -17,7 +17,6 @@ import Article from "./page/article"
 
 import './AppContainer.css';
 
-//<Route exact path="/" component={props => <Home {...props} />}/> 
 
 function AppContainer() {
   return (

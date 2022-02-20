@@ -1,0 +1,159 @@
+
+@font-face {
+	font-family: "bupa";
+	src: url("../assets/font/Montserrat-Regular.ttf");
+	src: url("../assets/font/Montserrat-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal; 
+}
+
+@font-face {
+	font-family: "bupa";
+	src: url("../assets/font/Montserrat-SemiBold.ttf");
+	src: url("../assets/font/Montserrat-SemiBold.ttf") format("truetype");
+	font-weight: 600;
+	font-style: normal; 
+}
+
+$desktopWidth: 1140px;
+
+body {
+	font-family: "bupa",Helvetica Neue, Arial, sans-serif;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 22.5px;
+    color: #333;
+}
+
+// Common CSS  
+
+.ui.container {
+	margin: 0 !important;
+}
+
+h1 {
+	font-size: 60px;
+	font-weight: 600;
+	line-height: 81px;
+}
+h2 {
+	color: #000000;
+}
+
+h2.accordion {
+	font-size: 32px;
+	line-height: 43.2px;
+}
+
+h2,h3 {
+	font-size: 25px;
+	font-weight: 600;
+	line-height: 33.75px;
+}
+.marginLeft15By2 {
+	margin-left: 7.5px;
+}
+.marginRight15By2 {
+	margin-right: 7.5px;
+}
+.marginTop15 {
+	margin-top: 15px;
+}
+.marginTo25 {
+	margin-top: 25px;
+}
+.text-center {
+	text-align: center;
+}
+
+// Main Desktop CSS
+#bupa-wrapper {
+	width: 100%;
+}
+.vessel {
+	max-width: $desktopWidth;
+    padding: 30px 30px 25px;
+    margin: 0 auto;
+
+	.termsCondition {
+		padding-bottom: 55px;
+	}
+}
+header .vessel {
+	padding-top: 40px;
+}
+footer.layer6 {
+	background-color: #03355B;
+	line-height: 0;
+
+	.vessel {
+		padding-top: 28px;
+		padding-bottom: 27px;
+	}
+} 
+header .vessel, footer .vessel { 
+	line-height: 0;
+}
+
+/* Media queries */
+@media only screen and (min-width: 767px) and (max-width: 1240px) {
+	.vessel {
+		width: 90%;
+	}
+}
+
+
+/* Default Mobile device  */
+@media only screen and (max-width: 768px) {
+	
+	h1 {
+		font-size: 32px;
+		line-height: 39.01px;
+	}
+	h3 {
+		font-size: 20px;
+		line-height: 27px;
+	}
+	.bupaLogo {
+		padding: 0 !important;
+
+		img {
+			width: 52px;
+			height: 52px;
+		}
+	} 
+	.vessel {
+		padding: 30px 20px 0;
+	}
+	header .vessel {
+		padding-top: 30px;
+	}
+	
+	footer.layer6 .vessel {
+		text-align: center;
+		padding-top: 20px;
+    	padding-bottom: 20px;
+	}
+
+}
+
+// Menu CSS
+.menu {
+	display: flex;
+	align-items: center;
+	padding: 0;
+
+	li {
+		list-style-type: none;
+		padding: 0 20px;
+
+		a {
+			color: #4183c4;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
