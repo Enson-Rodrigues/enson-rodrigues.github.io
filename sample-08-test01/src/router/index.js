@@ -3,24 +3,9 @@ import {
   Route, Routes, BrowserRouter
 } from "react-router-dom";  
 import Header from '../pages/Header';
-import Home from "../pages/Home";
-import OurTeam from "../pages/OurTeam";
 
-/*import data from "./config.json";
-const configRoute = data;*/
-const configRoute = [
-  {
-    path: '/',
-    component: Home,
-    name: "Home"
-  },
-  {
-    path: '/ourteam',
-    component: OurTeam,
-    name: "Test",
-    data: "New World"
-  }
-]
+import jsonData from "./config";
+const configRoute = jsonData;
   
 const CustomRouter = (props) => {
   return (

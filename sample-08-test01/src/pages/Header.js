@@ -1,18 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink  } from 'react-router-dom';
 import bupalogo from '../assets/images/bupa-logo.svg'
+import jsonData from '../router/config';
+const configRoute = jsonData;
 
+/* <li><Link to="/" replace >Home</Link></li>
+                    <li><Link to="/ourteam" replace >Our Team</Link></li>*/
 
 const Header = () => {
+
     return (
         <header className="layer1">
             <div className='vessel'>
                 <ul className='menu'>
                     <li className='bupaLogo'>
-                        <Link to="/" replace ><img width="80" height="80" src={bupalogo} alt="bupa-logo"/></Link>
+                        <NavLink to="/" replace ><img width="80" height="80" src={bupalogo} alt="bupa-logo"/></NavLink>
                     </li>
-                    <li><Link to="/" replace >Home</Link></li>
-                    <li><Link to="/ourteam" replace >Our Team</Link></li>
+                    {
+                        configRoute.map(
+                        (item, key) => 
+                            <li key={key} activeclassname="active">
+                                <NavLink to={item.path}>{item.name}</NavLink>
+                            </li>
+                        )
+                    }
+                    
                 </ul>
             </div>
         </header>
