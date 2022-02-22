@@ -1,4 +1,5 @@
 // Router Page
+import { Suspense } from "react";
 import {
   Route, Routes, BrowserRouter
 } from "react-router-dom";
@@ -12,21 +13,20 @@ const CustomRouter = (props) => {
     <div className="ui container">
       <BrowserRouter>
         <Header/>
-
-        <Routes>
-          {
-            configRoute.map(
-              ({path, component: MapComponent, data}, key) => 
-                <Route 
-                  key={key}
-                  path={path} 
-                  element={<MapComponent data={data} /> }
-                />
-            )
-          }
-
-        </Routes>
-        
+        <Suspense fallback={<></>}>
+          <Routes>
+            {
+              configRoute.map(
+                ({path, component: MapComponent, data}, key) => 
+                  <Route 
+                    key={key}
+                    path={path} 
+                    element={<MapComponent data={data} /> }
+                  />
+              )
+            }
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </div>
   );
