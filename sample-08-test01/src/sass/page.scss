@@ -29,6 +29,13 @@ body {
 
 .ui.container {
 	margin: 0 !important;
+	width: 100%!important;
+}
+
+.loader {
+	margin: 0 auto;
+    width: 9%;
+	display: none;
 }
 
 h1 {
@@ -159,4 +166,21 @@ header .vessel, footer .vessel {
 }
 .active {
 	font-weight: bold;
+}
+
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	max-width: 300px;
+	margin: auto;
+	text-align: center;
+	font-family: arial;
+	display: inline-block;
+	margin: 20px;
+	padding: 20px;
+
+	img{
+		max-width: 100%;
+    	height: auto;
+	}
 }

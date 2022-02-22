@@ -4,9 +4,6 @@ import bupalogo from '../assets/images/bupa-logo.svg'
 import jsonData from '../router/config';
 const configRoute = jsonData;
 
-/* <li><Link to="/" replace >Home</Link></li>
-                    <li><Link to="/ourteam" replace >Our Team</Link></li>*/
-
 const Header = () => {
 
     return (

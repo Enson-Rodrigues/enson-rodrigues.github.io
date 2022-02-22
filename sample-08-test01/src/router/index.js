@@ -1,7 +1,7 @@
 // Router Page
 import {
   Route, Routes, BrowserRouter
-} from "react-router-dom";  
+} from "react-router-dom";
 import Header from '../pages/Header';
 
 import jsonData from "./config";

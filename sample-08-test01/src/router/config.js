@@ -1,6 +1,6 @@
 import Home from "../pages/Home";
 import OurTeam from "../pages/OurTeam";
-import OurMap from "../pages/OurTeam";
+import OurLocation from "../pages/OurLocation";
 
 const jsonData = [
     {
@@ -11,13 +11,13 @@ const jsonData = [
     {
       "path": "/ourteam",
       "component": OurTeam,
-      "name": "Our Team",
+      "name": "Our Products",
       "data": "New World"
     },
     {
-      "path": "/map",
-      "component": OurMap,
-      "name": "Our Map",
+      "path": "/ourlocation",
+      "component": OurLocation,
+      "name": "Our Location",
       "data": "Map"
     }
   ]
