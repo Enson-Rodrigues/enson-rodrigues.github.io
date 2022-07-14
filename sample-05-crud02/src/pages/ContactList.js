@@ -28,12 +28,7 @@ const ContactList = () => {
         .map((contact)=>{
             console.log("Contact list listing");
         return (
-            <>
-                <Profiler id="per-contact-list" onRender={callBackFunct}>
-                    <ContactCard key={contact.id} contactDetails={contact}/>
-                </Profiler>
-                
-            </>
+            <ContactCard key={contact.id} contactDetails={contact}/>
         )
     })
 

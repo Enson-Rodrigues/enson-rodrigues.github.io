@@ -13,14 +13,14 @@ const Header = () => {
                     <li className='bupaLogo'>
                         <NavLink to="/" replace ><img width="80" height="80" src={bupalogo} alt="bupa-logo"/></NavLink>
                     </li>
-                    {
+                    {/*
                         configRoute.map(
                         (item, key) => 
                             <li key={key} activeclassname="active">
                                 <NavLink to={item.path}>{item.name}</NavLink>
                             </li>
                         )
-                    }
+                        */}
                     
                 </ul>
             </div>

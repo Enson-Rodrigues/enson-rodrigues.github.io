@@ -1,6 +1,7 @@
 import React from 'react';
 
 const OurLocation = (props) => {
+    console.log("location page");
     console.log(props.data);
 
     return (

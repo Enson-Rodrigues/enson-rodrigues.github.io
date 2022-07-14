@@ -4,7 +4,9 @@ import { lazy } from "react";
 const Home = lazy(()=> import('../pages/Home'));
 const OurTeam = lazy(()=> import('../pages/OurTeam'));
 const OurLocation = lazy(()=> import('../pages/OurLocation'));
-const ContactUs = lazy(()=> import('../pages/ContactUs'))
+const ContactUs = lazy(()=> import('../pages/ContactUs'));
+const Dashboard = lazy(()=> import('../pages/Dashboard'));
+
 //import Home from "../pages/Home";
 //import OurTeam from "../pages/OurTeam";
 //import OurLocation from "../pages/OurLocation";
@@ -14,25 +16,32 @@ const jsonData = [
     {
       "path": "/",
       "component": Home,
-      "name": "Home"
+      "name": "Home",
+      "routeType": 'public'
     },
     {
       "path": "/ourteam",
       "component": OurTeam,
       "name": "Our Products",
-      "data": "New World"
+      "routeType": 'public'
     },
     {
       "path": "/ourlocation",
       "component": OurLocation,
       "name": "Our Location",
-      "data": "Map"
+      "routeType": 'public'
     },
     {
       "path": "/contactus",
       "component": ContactUs,
       "name": "Contact Us",
-      "data": ""
+      "routeType": 'public'
+    },
+    {
+      "path": "/dashboard",
+      "component": Dashboard,
+      "name": "Dashboard",
+      "routeType": 'private'
     }
   ]
 

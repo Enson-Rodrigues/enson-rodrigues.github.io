@@ -1,5 +1,5 @@
 import { Profiler } from 'react'
-import FormComponent from '../components/FormComponent';
+import FormComponent from '../components/formComponent';
 
 const callBackFunct = (id, phase, actualDuration, baseDuration, startTime, commitTimme, interaction) => {
     /*console.log("id : "+id);
